@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://civdpek2nl6s"]
 
 [ext_resource type="PackedScene" uid="uid://jh7b20ivx6c" path="res://Scenes/KillZone.tscn" id="2_8gbba"]
-[ext_resource type="PackedScene" uid="uid://cgfg7xpuisx62" path="res://Scenes/player.tscn" id="2_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://bheonqhxhs3q4" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Transparent border/panel-transparent-border-015.png" id="3_8gbba"]
 [ext_resource type="Texture2D" uid="uid://sqcjpiv1yljf" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Border/panel-border-014.png" id="3_kry3j"]
 [ext_resource type="Texture2D" uid="uid://d01ci5etxifhp" path="res://Assets/tilemap.png" id="5_21xkr"]
@@ -168,10 +167,8 @@ environment = SubResource("Environment_8gbba")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." unique_id=1265762278 instance=ExtResource("2_bo1nx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.47452, 0)
-
 [node name="Base" type="Node3D" parent="." unique_id=1880712930]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Bridge" type="Node3D" parent="Base" unique_id=104132750]
 
@@ -364,7 +361,3 @@ text = "II"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1796561323]
 position = Vector2(568, 304)
 sprite_frames = SubResource("SpriteFrames_21xkr")
-
-[connection signal="pressed" from="CanvasLayer/ColorRect2/Exit" to="Player" method="_on_exit_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect2/Conitnue" to="Player" method="_on_conitnue_pressed"]
-[connection signal="pressed" from="CanvasLayer/Button" to="Player" method="_on_button_pressed"]

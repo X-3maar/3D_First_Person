@@ -86,7 +86,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
 func _on_button_pressed() -> void:
 	color_rect.show()
 	color_rect_2.show()
@@ -104,3 +103,7 @@ func _on_conitnue_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	
+
+	
+	
