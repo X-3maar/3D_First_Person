@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://civdpek2nl6s"]
 
 [ext_resource type="PackedScene" uid="uid://jh7b20ivx6c" path="res://Scenes/KillZone.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cgfg7xpuisx62" path="res://Scenes/player.tscn" id="2_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://bheonqhxhs3q4" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Transparent border/panel-transparent-border-015.png" id="3_8gbba"]
 [ext_resource type="Texture2D" uid="uid://sqcjpiv1yljf" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Border/panel-border-014.png" id="3_kry3j"]
 [ext_resource type="Texture2D" uid="uid://d01ci5etxifhp" path="res://Assets/tilemap.png" id="5_21xkr"]
+[ext_resource type="PackedScene" uid="uid://dntph4dky4b3a" path="res://Scenes/enemy.tscn" id="6_21xkr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -176,22 +178,22 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 use_collision = true
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=1488863261]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 2.4744518, 0, -1, 0, -4.371139e-08, 0, -1.9140471, 127.027)
+transform = Transform3D(-4.7689124e-08, 0, 1.091, 0, 2.7, 0, -1.091, 0, -4.7689124e-08, 0, -1.9140471, 127.027)
 use_collision = true
 size = Vector3(164.27576, 1.1818848, 19.788086)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=463318362]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 2.4744518, 0, -1, 0, -4.371139e-08, 0, -1.9140471, -128.80936)
+transform = Transform3D(-4.7689124e-08, 0, 1.091, 0, 2.7, 0, -1.091, 0, -4.7689124e-08, 0, -1.9140471, -128.80936)
 use_collision = true
 size = Vector3(164.27576, 1.1818848, 19.788086)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=819240221]
-transform = Transform3D(1, 0, 0, 0, 2.4744518, 0, 0, 0, 1, -128.47083, -1.914, 0)
+transform = Transform3D(1.092, 0, 0, 0, 2.7, 0, 0, 0, 1.092, -128.47083, -1.914, 0)
 use_collision = true
 size = Vector3(164.27576, 1.1818848, 19.788086)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=400285464]
-transform = Transform3D(1, 0, 0, 0, 2.4744518, 0, 0, 0, 1, 122.47042, -1.914, 0)
+transform = Transform3D(1.091, 0, 0, 0, 2.7, 0, 0, 0, 1.091, 122.47042, -1.914, 0)
 use_collision = true
 size = Vector3(164.27576, 1.1818848, 19.788086)
 
@@ -361,3 +363,12 @@ text = "II"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1796561323]
 position = Vector2(568, 304)
 sprite_frames = SubResource("SpriteFrames_21xkr")
+
+[node name="Player" parent="." unique_id=160261987 instance=ExtResource("2_bo1nx")]
+
+[node name="Enemy" parent="." unique_id=1253465279 instance=ExtResource("6_21xkr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.761517, 1.1231737, 0)
+
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Exit" to="Player" method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Conitnue" to="Player" method="_on_conitnue_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="Player" method="_on_button_pressed"]

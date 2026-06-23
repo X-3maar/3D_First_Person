@@ -1,4 +1,5 @@
 extends CharacterBody3D
+@onready var marker_3d: Marker3D = $Node3D/Camera3D/Marker3D
 @onready var node_3d: Node3D = $Node3D
 @onready var camera_3d: Camera3D = $Node3D/Camera3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -7,12 +8,13 @@ extends CharacterBody3D
 @onready var color_rect_2: ColorRect = $"../CanvasLayer/ColorRect2"
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../CanvasLayer/AnimatedSprite2D"
 @onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
+var shot = false
 
 var is_paused = false
 var is_locked = true
 var target= 75
 var SPEED = 20
-var JUMP_VELOCITY = 40
+var JUMP_VELOCITY = 5
 var sprint  = false
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -37,34 +39,35 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.show()
 		
 	if not is_on_floor():
-		velocity += get_gravity() * delta * 10
+		velocity += get_gravity() * delta 
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed("run") and Input.is_action_pressed("move_front"):
-		SPEED = 40
-		target = 100
+		SPEED = 30 
 		if !sprint:
 			animation_player.play("sprintin")
 			animation_player_2.play("fast")
 			sprint = true
 	elif Input.is_action_just_released("run"):
 		SPEED = 20
-		target = 75
 		if sprint:
 			animation_player.play("sprintout")
-			animation_player_2.play("idle")
+
+
 			sprint = false
-	camera_3d.fov = target
 	var input_dir := Input.get_vector("move_left", "move_right", "move_front", "move_back")
 	var direction = (node_3d.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		animation_player_2.play("idle")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		if !shot:
+			animation_player_2.stop()
 	if Input.is_action_just_pressed("esc") and !is_paused:
 		color_rect.show()
 		button.hide()
@@ -80,8 +83,15 @@ func _physics_process(delta: float) -> void:
 		button.show()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		animated_sprite_2d.show()
+
 	if is_paused:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if Input.is_action_just_pressed("shoot"):
+		shot = true
+		animation_player_2.play("shoot")
+		shoot()
+		await animation_player_2.animation_finished
+		shot = false
 	
 
 	move_and_slide()
@@ -104,6 +114,9 @@ func _on_conitnue_pressed() -> void:
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	
-
-	
+func shoot():
+	const BULLET = preload("uid://dl5uh1glkohgb")
+	var bullet = BULLET.instantiate()
+	marker_3d.add_child(bullet)
+	bullet.global_transform = marker_3d.global_transform
 	

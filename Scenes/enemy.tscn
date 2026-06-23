@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dntph4dky4b3a"]
+
+[ext_resource type="Script" uid="uid://gu8vnr4tvhue" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="PackedScene" uid="uid://dhjixxywl1bfs" path="res://Assets/Models/GLB format/animal-pig.glb" id="2_afpow"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_287tu"]
+size = Vector3(1.1327057, 1.2612305, 1.0849609)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=1253465279]
+script = ExtResource("1_1f0kj")
+
+[node name="animal-pig2" parent="." unique_id=594697988 instance=ExtResource("2_afpow")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=708580579]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1570683793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002357483, 0.7570801, -0.04248047)
+shape = SubResource("BoxShape3D_287tu")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
