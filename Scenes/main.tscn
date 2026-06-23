@@ -178,25 +178,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.47452, 0)
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Base/Bridge" unique_id=608680247]
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=1233705534]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.314, -3.4, 0)
-use_collision = true
-size = Vector3(164.27576, 2.4936523, 19.788086)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=1487692327]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.382, -3.53, 0)
-use_collision = true
-size = Vector3(164.27576, 2.4936523, 19.788086)
-
 [node name="CSGBox3D3" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=1488863261]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -3.537, 127.027)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 2.4744518, 0, -1, 0, -4.371139e-08, 0, -1.9140471, 127.027)
 use_collision = true
-size = Vector3(164.27576, 2.4936523, 19.788086)
+size = Vector3(164.27576, 1.1818848, 19.788086)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=418169682]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -3.537, -126.218)
+[node name="CSGBox3D4" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=463318362]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 2.4744518, 0, -1, 0, -4.371139e-08, 0, -1.9140471, -128.80936)
 use_collision = true
-size = Vector3(164.27576, 2.4936523, 19.788086)
+size = Vector3(164.27576, 1.1818848, 19.788086)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=819240221]
+transform = Transform3D(1, 0, 0, 0, 2.4744518, 0, 0, 0, 1, -128.47083, -1.914, 0)
+use_collision = true
+size = Vector3(164.27576, 1.1818848, 19.788086)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=400285464]
+transform = Transform3D(1, 0, 0, 0, 2.4744518, 0, 0, 0, 1, 122.47042, -1.914, 0)
+use_collision = true
+size = Vector3(164.27576, 1.1818848, 19.788086)
 
 [node name="Towers" type="Node3D" parent="Base" unique_id=515382577]
 
@@ -210,7 +210,7 @@ height = 8171.166
 sides = 20
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D" unique_id=1072723513]
-transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4156.6045, 0)
+transform = Transform3D(0.9800036, 0, 0, 0, 1.6900002, 0, 0, 0, 0.9800036, 0, 4175, 0)
 operation = 2
 use_collision = true
 height = 108.22565
@@ -223,7 +223,7 @@ height = 8171.166
 sides = 20
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D2" unique_id=5805728]
-transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4156.6045, 0)
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4175, 0)
 operation = 2
 use_collision = true
 height = 108.22565
@@ -236,7 +236,7 @@ height = 8171.166
 sides = 20
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D3" unique_id=411162219]
-transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4156.6045, 0)
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4175, 0)
 operation = 2
 use_collision = true
 height = 108.22565
@@ -249,7 +249,7 @@ height = 8171.166
 sides = 20
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D4" unique_id=1318204312]
-transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4156.6045, 0)
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4175, 0)
 operation = 2
 use_collision = true
 height = 108.22565
@@ -262,7 +262,7 @@ height = 8171.166
 sides = 20
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D5" unique_id=1344960242]
-transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4156.6045, 0)
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4175, 0)
 operation = 2
 use_collision = true
 height = 108.22565

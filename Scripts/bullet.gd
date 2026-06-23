@@ -1,16 +1,14 @@
-extends AnimatableBody3D
+extends Area3D
 
-var dir
+
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+const speed = 55
+const range = 40
+var dis = 0
+func _physics_process(delta: float) -> void:
+	position += -transform.basis.z * speed * delta
+	dis += speed * delta
+	if dis > 40:
+		queue_free()
+func _on_body_entered(body: Node3D) -> void:
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	dir = -global_transform.basis.z
-	global_position += dir * 200 * delta
-	
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	call_deferred("queue_free")
