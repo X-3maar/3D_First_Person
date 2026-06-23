@@ -1,0 +1,370 @@
+[gd_scene format=3 uid="uid://civdpek2nl6s"]
+
+[ext_resource type="PackedScene" uid="uid://jh7b20ivx6c" path="res://Scenes/KillZone.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cgfg7xpuisx62" path="res://Scenes/player.tscn" id="2_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://bheonqhxhs3q4" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Transparent border/panel-transparent-border-015.png" id="3_8gbba"]
+[ext_resource type="Texture2D" uid="uid://sqcjpiv1yljf" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Border/panel-border-014.png" id="3_kry3j"]
+[ext_resource type="Texture2D" uid="uid://d01ci5etxifhp" path="res://Assets/tilemap.png" id="5_21xkr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_bo1nx"]
+sky_material = SubResource("ProceduralSkyMaterial_jjgbg")
+
+[sub_resource type="Environment" id="Environment_8gbba"]
+background_mode = 2
+sky = SubResource("Sky_bo1nx")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bp64"]
+atlas = ExtResource("3_kry3j")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_344ge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bp64")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynf5e"]
+atlas = ExtResource("3_kry3j")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hptm8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynf5e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1ilt"]
+atlas = ExtResource("3_kry3j")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6iyac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1ilt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjvhh"]
+atlas = ExtResource("3_8gbba")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdnlq"]
+atlas = ExtResource("3_kry3j")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkdf5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjvhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdnlq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsu2k"]
+atlas = ExtResource("5_21xkr")
+region = Rect2(255, 17, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k12tt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsu2k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1bgf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjvhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdnlq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3802"]
+atlas = ExtResource("5_21xkr")
+region = Rect2(204, 68, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fevyy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3802")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kry3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjvhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdnlq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kry3j"]
+atlas = ExtResource("5_21xkr")
+region = Rect2(85, 68, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_21xkr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kry3j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="main" type="Node3D" unique_id=1663971755]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1537357348]
+environment = SubResource("Environment_8gbba")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=767576652]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=1265762278 instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.47452, 0)
+
+[node name="Base" type="Node3D" parent="." unique_id=1880712930]
+
+[node name="Bridge" type="Node3D" parent="Base" unique_id=104132750]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Base/Bridge" unique_id=608680247]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=1233705534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.314, -3.4, 0)
+use_collision = true
+size = Vector3(164.27576, 2.4936523, 19.788086)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=1487692327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.382, -3.53, 0)
+use_collision = true
+size = Vector3(164.27576, 2.4936523, 19.788086)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=1488863261]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -3.537, 127.027)
+use_collision = true
+size = Vector3(164.27576, 2.4936523, 19.788086)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=418169682]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -3.537, -126.218)
+use_collision = true
+size = Vector3(164.27576, 2.4936523, 19.788086)
+
+[node name="Towers" type="Node3D" parent="Base" unique_id=515382577]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Base/Towers" unique_id=1210766688]
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1935630270]
+transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 0, -408.63834, 0)
+use_collision = true
+height = 8171.166
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D" unique_id=1072723513]
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4156.6045, 0)
+operation = 2
+use_collision = true
+height = 108.22565
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1989048799]
+transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 0, -408.63834, 250)
+use_collision = true
+height = 8171.166
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D2" unique_id=5805728]
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4156.6045, 0)
+operation = 2
+use_collision = true
+height = 108.22565
+sides = 20
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1984336053]
+transform = Transform3D(100.000015, 0, 0, 0, 0.1, 0, 0, 0, 100.000015, 0, -408.63834, -250.00006)
+use_collision = true
+height = 8171.166
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D3" unique_id=411162219]
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4156.6045, 0)
+operation = 2
+use_collision = true
+height = 108.22565
+sides = 20
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=830042715]
+transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 250, -408.63834, 0)
+use_collision = true
+height = 8171.166
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D4" unique_id=1318204312]
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4156.6045, 0)
+operation = 2
+use_collision = true
+height = 108.22565
+sides = 20
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1044278640]
+transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, -250, -408.63834, 0)
+use_collision = true
+height = 8171.166
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D5" unique_id=1344960242]
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4156.6045, 0)
+operation = 2
+use_collision = true
+height = 108.22565
+sides = 20
+
+[node name="Area3D" parent="." unique_id=1661018115 instance=ExtResource("2_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -521.4232, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=659615867]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1727053445]
+visible = false
+offset_right = 1165.0
+offset_bottom = 660.0
+color = Color(0, 0, 0, 0.5058824)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer" unique_id=751651671]
+visible = false
+offset_right = 1165.0
+offset_bottom = 660.0
+color = Color(0, 0, 0, 0.5058824)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1805076146]
+visible = false
+offset_left = 354.0
+offset_top = 230.0
+offset_right = 785.0
+offset_bottom = 363.0
+color = Color(0, 0, 0, 0.5058824)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=847301109]
+position = Vector2(26, 67)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_344ge")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=1182728094]
+position = Vector2(218, 67)
+scale = Vector2(21.874998, 2.5)
+sprite_frames = SubResource("SpriteFrames_hptm8")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=295377778]
+position = Vector2(406, 67)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_6iyac")
+
+[node name="Exit" type="Button" parent="CanvasLayer/ColorRect2" unique_id=369453709]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 36.0
+offset_right = 163.0
+offset_bottom = 98.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Exit" unique_id=1841738159]
+position = Vector2(31, 31)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_jkdf5")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Exit" unique_id=1284451092]
+position = Vector2(31, 31)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_k12tt")
+
+[node name="Conitnue" type="Button" parent="CanvasLayer/ColorRect2" unique_id=1190332991]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 36.0
+offset_right = 331.0
+offset_bottom = 98.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Conitnue" unique_id=157397419]
+position = Vector2(31, 31)
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_h1bgf")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Conitnue" unique_id=876423879]
+position = Vector2(31, 31)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_fevyy")
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1861931992]
+offset_left = 55.0
+offset_top = 49.0
+offset_right = 103.0
+offset_bottom = 97.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button" unique_id=632983171]
+position = Vector2(24, 24)
+sprite_frames = SubResource("SpriteFrames_kry3j")
+
+[node name="Label" type="Label" parent="CanvasLayer/Button" unique_id=879343870]
+layout_mode = 0
+offset_left = 14.0
+offset_right = 62.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "II"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1796561323]
+position = Vector2(568, 304)
+sprite_frames = SubResource("SpriteFrames_21xkr")
+
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Exit" to="Player" method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Conitnue" to="Player" method="_on_conitnue_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="Player" method="_on_button_pressed"]
