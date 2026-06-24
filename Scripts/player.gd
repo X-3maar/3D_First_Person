@@ -4,7 +4,8 @@ const BULLET = preload("uid://dl5uh1glkohgb")
 @onready var color_rect: ColorRect = $"../CanvasLayer/ColorRect"
 @onready var color_rect_2: ColorRect = $"../CanvasLayer/ColorRect2"
 @onready var shooter: Marker3D = $Neck/Camera3D/Pistol/Shooter
-
+@onready var camera: AnimationPlayer = $Camera
+@onready var pistol: AnimationPlayer = $Pistol
 @onready var button: Button = $"../CanvasLayer/Button"
 @onready var cross_hair: AnimatedSprite2D = $"../CanvasLayer/CrossHair"
 var aiming = false
@@ -24,6 +25,45 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 func _physics_process(delta: float) -> void:
+	var input_dir := Input.get_vector("move_left", "move_right", "move_front", "move_back")
+	var direction := (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if Input.is_action_pressed("move_front") or Input.is_action_pressed("move_back") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right") and direction and !aiming:
+		camera.play("Walk")
+		pistol.play("Walk")
+		if Input.is_action_just_pressed("shoot"):
+			camera.stop()
+			pistol.stop()
+			pistol.play("Shooting")
+		else:
+			camera.play("Walk")
+			pistol.play("Walk")
+		if Input.is_action_pressed("run"):
+			pistol.speed_scale = 2.0
+			camera.speed_scale = 2.0
+			SPEED = 10
+			running = true
+		elif Input.is_action_just_released("run") and Input.is_action_pressed("move_front"):
+			pistol.speed_scale = 1.0
+			camera.speed_scale = 1.0
+			SPEED = 5
+			running = false
+
+	elif Input.is_action_just_pressed("aim") and !aiming:
+		pistol.stop()
+		camera.stop()
+		pistol.play("aimin")
+		camera.play("aimin")
+		aiming = true
+		if Input.is_action_just_pressed("move_front") or Input.is_action_just_pressed("move_back") or Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+			SPEED = 2
+		else:
+			SPEED = 5
+	elif Input.is_action_just_pressed("aim") and aiming:
+		pistol.play("aimout")
+		camera.play("aimout")
+		await pistol.animation_finished
+		await camera.animation_finished
+		aiming = false
 	
 	if Input.is_action_just_pressed("esc") and !paused:
 		color_rect.show()
@@ -60,8 +100,6 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("move_left", "move_right", "move_front", "move_back")
-	var direction := (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction and Input.is_action_pressed("run"):
 		running = true
 	else:
@@ -73,6 +111,10 @@ func _physics_process(delta: float) -> void:
 		SPEED = 10
 	else:
 		SPEED = 5
+			
+	if Input.is_action_just_released("move_back") or Input.is_action_just_released("move_front") or Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right") and !direction:
+		pistol.stop()
+		camera.stop()
 		
 
 	if Input.is_action_just_released("move_back") or Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right") or Input.is_action_just_released("move_front"):
@@ -80,7 +122,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 	if Input.is_action_just_pressed("shoot"):
-
 		shoot()
 	
 	if !direction:
