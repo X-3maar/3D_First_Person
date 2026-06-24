@@ -81,7 +81,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = direction.z * SPEED
 		if is_on_floor() and !aiming:
 			animation_player.play("walk")
-			pistol_player.play("walk")
 		elif !is_on_floor and !aiming:
 			animation_player.stop()
 		
@@ -92,21 +91,20 @@ func _physics_process(delta: float) -> void:
 		animation_player.stop()
 		pistol_player.stop()
 		
-	if Input.is_action_just_pressed("shoot") and pistol_player.animation_finished:
+	if Input.is_action_just_pressed("shoot"):
 		animation_player.stop()
 		if !aiming:
-			pistol_player.stop()
 			shoot_player.play("shoot")
 		shoot()
 	if Input.is_action_just_pressed("aim") and !aiming:
+		aiming = true
 		animation_player.stop()
 		pistol_player.stop()
 		pistol_player.play("aim")
-		aiming = true
 		SPEED = 2
 	elif Input.is_action_just_pressed("aim") and aiming:
-		animation_player.stop()
 		pistol_player.play("aimout")
+		animation_player.stop()
 		await pistol_player.animation_finished
 		aiming = false
 		SPEED = 5
