@@ -307,12 +307,6 @@ offset_right = 1165.0
 offset_bottom = 660.0
 color = Color(0, 0, 0, 0.5058824)
 
-[node name="ColorRect3" type="ColorRect" parent="CanvasLayer" unique_id=751651671]
-visible = false
-offset_right = 1165.0
-offset_bottom = 660.0
-color = Color(0, 0, 0, 0.5058824)
-
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1805076146]
 visible = false
 offset_left = 354.0
@@ -408,4 +402,7 @@ shape = SubResource("WorldBoundaryShape3D_8gbba")
 [node name="Player" parent="." unique_id=1939714363 instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9084121, 0)
 
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Exit" to="Player" method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Conitnue" to="Player" method="_on_conitnue_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="Player" method="_on_button_pressed"]
 [connection signal="body_entered" from="Sea/Killzone" to="Sea/Killzone" method="_on_body_entered"]
