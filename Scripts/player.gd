@@ -9,7 +9,7 @@ const BULLET = preload("uid://dl5uh1glkohgb")
 @onready var shoot_player: AnimationPlayer = $ShootPlayer
 @onready var button: Button = $"../CanvasLayer/Button"
 @onready var cross_hair: AnimatedSprite2D = $"../CanvasLayer/CrossHair"
-
+var aiming = false
 var SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var captured = true
@@ -67,10 +67,11 @@ func _physics_process(delta: float) -> void:
 		running = true
 	else:
 		running = false
-	if running:
+	if running and !aiming:
 		SPEED = 10
 		animation_player.speed_scale = 1.5
 		pistol_player.speed_scale = 1.5
+
 	else:
 		SPEED = 5
 		animation_player.speed_scale = 1.0
@@ -78,25 +79,41 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		if is_on_floor():
+		if is_on_floor() and !aiming:
 			animation_player.play("walk")
 			pistol_player.play("walk")
-		else:
+		elif !is_on_floor and !aiming:
 			animation_player.stop()
 		
 
-	elif Input.is_action_just_released("move_back") or Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right") or Input.is_action_just_released("move_front"):
+	elif Input.is_action_just_released("move_back") or Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right") or Input.is_action_just_released("move_front") and !aiming:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		animation_player.stop()
 		pistol_player.stop()
 		
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and pistol_player.animation_finished:
+		animation_player.stop()
+		if !aiming:
+			pistol_player.stop()
+			shoot_player.play("shoot")
+		shoot()
+	if Input.is_action_just_pressed("aim") and !aiming:
 		animation_player.stop()
 		pistol_player.stop()
-		shoot_player.play("shoot")
-		shoot()
-		
+		pistol_player.play("aim")
+		aiming = true
+		SPEED = 2
+	elif Input.is_action_just_pressed("aim") and aiming:
+		animation_player.stop()
+		pistol_player.play("aimout")
+		await pistol_player.animation_finished
+		aiming = false
+		SPEED = 5
+	
+	if !direction:
+		velocity.x = 0
+		velocity.z = 0
 	move_and_slide()
 
 

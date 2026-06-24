@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://d3cjh4cnpppb6" path="res://Scripts/bullet.gd" id="1_xjght"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4mw4s"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjght"]
 albedo_color = Color(18.892157, 18.892157, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xjght"]
+radius = 0.29020974
 
 [node name="Bullet" type="Area3D" unique_id=1378083378]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
@@ -14,11 +15,11 @@ collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_xjght")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2080127626]
-shape = SubResource("BoxShape3D_4mw4s")
-
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=140941390]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.5, 0, 0, 0)
 material = SubResource("StandardMaterial3D_xjght")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=137580910]
+shape = SubResource("SphereShape3D_xjght")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
