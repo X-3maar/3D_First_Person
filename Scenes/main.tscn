@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://civdpek2nl6s"]
 
-[ext_resource type="PackedScene" uid="uid://jh7b20ivx6c" path="res://Scenes/KillZone.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cgfg7xpuisx62" path="res://Scenes/player.tscn" id="2_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://bheonqhxhs3q4" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Transparent border/panel-transparent-border-015.png" id="3_8gbba"]
 [ext_resource type="Texture2D" uid="uid://sqcjpiv1yljf" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Border/panel-border-014.png" id="3_kry3j"]
+[ext_resource type="Script" uid="uid://bbt5i5bjt6kmx" path="res://Scripts/Sea.gd" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://d01ci5etxifhp" path="res://Assets/tilemap.png" id="5_21xkr"]
-[ext_resource type="PackedScene" uid="uid://dntph4dky4b3a" path="res://Scenes/enemy.tscn" id="6_21xkr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -19,6 +18,35 @@ background_mode = 2
 sky = SubResource("Sky_bo1nx")
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(4.2114408e-08, 0.13238046, 0.14912716, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21xkr"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bp64"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_344ge"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynf5e"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hptm8"]
+albedo_color = Color(5.700253, 4.238891, 12.230712, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdnlq"]
+albedo_color = Color(0, 0, 5.2480645, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkdf5"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1ilt"]
+albedo_color = Color(5.2480645, 5.2480645, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iyac"]
+albedo_color = Color(1, 1, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bp64"]
 atlas = ExtResource("3_kry3j")
@@ -145,20 +173,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kry3j"]
-atlas = ExtResource("5_21xkr")
-region = Rect2(85, 68, 16, 16)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kry3j"]
+albedo_color = Color(0, 0.78039217, 1, 1)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_21xkr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kry3j")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8gbba"]
 
 [node name="main" type="Node3D" unique_id=1663971755]
 
@@ -170,7 +188,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Base" type="Node3D" parent="." unique_id=1880712930]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="Bridge" type="Node3D" parent="Base" unique_id=104132750]
 
@@ -181,21 +199,25 @@ use_collision = true
 transform = Transform3D(-4.7689124e-08, 0, 1.091, 0, 2.7, 0, -1.091, 0, -4.7689124e-08, 0, -1.9140471, 127.027)
 use_collision = true
 size = Vector3(164.27576, 1.1818848, 19.788086)
+material = SubResource("StandardMaterial3D_21xkr")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=463318362]
 transform = Transform3D(-4.7689124e-08, 0, 1.091, 0, 2.7, 0, -1.091, 0, -4.7689124e-08, 0, -1.9140471, -128.80936)
 use_collision = true
 size = Vector3(164.27576, 1.1818848, 19.788086)
+material = SubResource("StandardMaterial3D_6bp64")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=819240221]
 transform = Transform3D(1.092, 0, 0, 0, 2.7, 0, 0, 0, 1.092, -128.47083, -1.914, 0)
 use_collision = true
 size = Vector3(164.27576, 1.1818848, 19.788086)
+material = SubResource("StandardMaterial3D_344ge")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=400285464]
 transform = Transform3D(1.091, 0, 0, 0, 2.7, 0, 0, 0, 1.091, 122.47042, -1.914, 0)
 use_collision = true
 size = Vector3(164.27576, 1.1818848, 19.788086)
+material = SubResource("StandardMaterial3D_ynf5e")
 
 [node name="Towers" type="Node3D" parent="Base" unique_id=515382577]
 
@@ -203,10 +225,11 @@ size = Vector3(164.27576, 1.1818848, 19.788086)
 use_collision = true
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1935630270]
-transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 0, -408.63834, 0)
+transform = Transform3D(200, 0, 0, 0, 0.1, 0, 0, 0, 200, 0, -408.63834, 0)
 use_collision = true
 height = 8171.166
 sides = 20
+material = SubResource("StandardMaterial3D_hptm8")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D" unique_id=1072723513]
 transform = Transform3D(0.9800036, 0, 0, 0, 1.6900002, 0, 0, 0, 0.9800036, 0, 4175, 0)
@@ -233,6 +256,7 @@ transform = Transform3D(100.000015, 0, 0, 0, 0.1, 0, 0, 0, 100.000015, 0, -408.6
 use_collision = true
 height = 8171.166
 sides = 20
+material = SubResource("StandardMaterial3D_fdnlq")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D3" unique_id=411162219]
 transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4175, 0)
@@ -240,6 +264,7 @@ operation = 2
 use_collision = true
 height = 108.22565
 sides = 20
+material = SubResource("StandardMaterial3D_jkdf5")
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=830042715]
 transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 250, -408.63834, 0)
@@ -259,6 +284,7 @@ transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, -250, -408.63834, 0)
 use_collision = true
 height = 8171.166
 sides = 20
+material = SubResource("StandardMaterial3D_d1ilt")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D5" unique_id=1344960242]
 transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4175, 0)
@@ -266,9 +292,7 @@ operation = 2
 use_collision = true
 height = 108.22565
 sides = 20
-
-[node name="Area3D" parent="." unique_id=1661018115 instance=ExtResource("2_8gbba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -521.4232, 0)
+material = SubResource("StandardMaterial3D_6iyac")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=659615867]
 
@@ -360,15 +384,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "II"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1796561323]
-position = Vector2(575, 315)
-sprite_frames = SubResource("SpriteFrames_21xkr")
+[node name="Sea" type="Node3D" parent="." unique_id=1725388447]
 
-[node name="Player" parent="." unique_id=160261987 instance=ExtResource("2_bo1nx")]
+[node name="Water" type="CSGBox3D" parent="Sea" unique_id=637818159]
+transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, -369.69257, 0)
+material = SubResource("StandardMaterial3D_kry3j")
 
-[node name="Enemy" parent="." unique_id=1253465279 instance=ExtResource("6_21xkr")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.761517, 1.1231737, 0)
+[node name="Killzone" type="Area3D" parent="Sea" unique_id=1450338288]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_jjvhh")
 
-[connection signal="pressed" from="CanvasLayer/ColorRect2/Exit" to="Player" method="_on_exit_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect2/Conitnue" to="Player" method="_on_conitnue_pressed"]
-[connection signal="pressed" from="CanvasLayer/Button" to="Player" method="_on_button_pressed"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sea/Killzone" unique_id=1666126956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5291595, -220.5086, 0)
+shape = SubResource("WorldBoundaryShape3D_8gbba")
+
+[node name="Player" parent="." unique_id=1939714363 instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.517298, 0)
+
+[connection signal="body_entered" from="Sea/Killzone" to="Sea/Killzone" method="_on_body_entered"]
