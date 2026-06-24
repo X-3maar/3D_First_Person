@@ -177,6 +177,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kry3j"]
+atlas = ExtResource("5_21xkr")
+region = Rect2(289, 34, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_21xkr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kry3j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kry3j"]
 albedo_color = Color(0, 0.78039217, 1, 1)
 
@@ -382,6 +397,11 @@ offset_bottom = 47.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "II"
+
+[node name="CrossHair" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1388556202]
+position = Vector2(582.5, 324.5)
+scale = Vector2(1.3125, 1.3125)
+sprite_frames = SubResource("SpriteFrames_21xkr")
 
 [node name="Sea" type="Node3D" parent="." unique_id=1725388447]
 

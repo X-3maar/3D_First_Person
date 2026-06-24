@@ -1,9 +1,14 @@
 extends CharacterBody3D
+const BULLET = preload("uid://dl5uh1glkohgb")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var pistol_player: AnimationPlayer = $PistolPlayer
 @onready var color_rect: ColorRect = $"../CanvasLayer/ColorRect"
 @onready var color_rect_2: ColorRect = $"../CanvasLayer/ColorRect2"
+@onready var shooter: Marker3D = $Neck/Camera3D/Pistol/Shooter
+@onready var shoot_player: AnimationPlayer = $ShootPlayer
+@onready var button: Button = $"../CanvasLayer/Button"
+@onready var cross_hair: AnimatedSprite2D = $"../CanvasLayer/CrossHair"
 
 var SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -26,19 +31,27 @@ func _physics_process(delta: float) -> void:
 		color_rect_2.show()
 		Engine.time_scale = 0.0
 		paused = true
+		button.hide()
+		cross_hair.hide()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	elif Input.is_action_just_pressed("esc") and paused:
 		color_rect.hide()
 		color_rect_2.hide()
 		Engine.time_scale = 1.0
 		paused = false
+		button.show()
+		cross_hair.show()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if Input.is_action_just_pressed("ctrl") and captured:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		captured = false
+		cross_hair.hide()
 	elif Input.is_action_just_pressed("ctrl") and !captured:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		captured = true
+		if !paused:
+			cross_hair.show()
+		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -78,6 +91,12 @@ func _physics_process(delta: float) -> void:
 		animation_player.stop()
 		pistol_player.stop()
 		
+	if Input.is_action_just_pressed("shoot"):
+		animation_player.stop()
+		pistol_player.stop()
+		shoot_player.play("shoot")
+		shoot()
+		
 	move_and_slide()
 
 
@@ -91,10 +110,18 @@ func _on_conitnue_pressed() -> void:
 	Engine.time_scale = 1.0
 	paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	button.show()
+	cross_hair.show()
 
 func _on_button_pressed() -> void:
 	color_rect.show()
 	color_rect_2.show()
 	Engine.time_scale = 0.0
+	button.hide()
+	cross_hair.hide()
 	paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+func shoot():
+	var bullet = BULLET.instantiate()
+	shooter.add_child(bullet)
+	bullet.global_transform = shooter.global_transform
