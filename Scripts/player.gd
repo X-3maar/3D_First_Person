@@ -1,12 +1,10 @@
 extends CharacterBody3D
 const BULLET = preload("uid://dl5uh1glkohgb")
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var pistol_player: AnimationPlayer = $PistolPlayer
 @onready var color_rect: ColorRect = $"../CanvasLayer/ColorRect"
 @onready var color_rect_2: ColorRect = $"../CanvasLayer/ColorRect2"
 @onready var shooter: Marker3D = $Neck/Camera3D/Pistol/Shooter
-@onready var shoot_player: AnimationPlayer = $ShootPlayer
+
 @onready var button: Button = $"../CanvasLayer/Button"
 @onready var cross_hair: AnimatedSprite2D = $"../CanvasLayer/CrossHair"
 var aiming = false
@@ -26,6 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 func _physics_process(delta: float) -> void:
+	
 	if Input.is_action_just_pressed("esc") and !paused:
 		color_rect.show()
 		color_rect_2.show()
@@ -66,48 +65,23 @@ func _physics_process(delta: float) -> void:
 	if direction and Input.is_action_pressed("run"):
 		running = true
 	else:
-		running = false
-	if running and !aiming:
-		SPEED = 10
-		animation_player.speed_scale = 1.5
-		pistol_player.speed_scale = 1.5
-
-	else:
-		SPEED = 5
-		animation_player.speed_scale = 1.0
-		pistol_player.speed_scale = 1.0
-	if direction:
+		running = false		
+	if direction :
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		if is_on_floor() and !aiming:
-			animation_player.play("walk")
-		elif !is_on_floor and !aiming:
-			animation_player.stop()
+	if running:
+		SPEED = 10
+	else:
+		SPEED = 5
 		
 
-	elif Input.is_action_just_released("move_back") or Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right") or Input.is_action_just_released("move_front") and !aiming:
+	if Input.is_action_just_released("move_back") or Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right") or Input.is_action_just_released("move_front"):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		animation_player.stop()
-		pistol_player.stop()
 		
 	if Input.is_action_just_pressed("shoot"):
-		animation_player.stop()
-		if !aiming:
-			shoot_player.play("shoot")
+
 		shoot()
-	if Input.is_action_just_pressed("aim") and !aiming:
-		aiming = true
-		animation_player.stop()
-		pistol_player.stop()
-		pistol_player.play("aim")
-		SPEED = 2
-	elif Input.is_action_just_pressed("aim") and aiming:
-		pistol_player.play("aimout")
-		animation_player.stop()
-		await pistol_player.animation_finished
-		aiming = false
-		SPEED = 5
 	
 	if !direction:
 		velocity.x = 0
