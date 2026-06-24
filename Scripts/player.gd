@@ -37,7 +37,9 @@ func _physics_process(delta: float) -> void:
 		moving = false
 	if moving and !aiming and !pistol.is_playing():
 		camera.play("Walk")
-	elif !moving and !aiming:
+	elif !moving and !aiming and !camera.is_playing() and camera_3d.fov == 60:
+		camera.stop()
+	if !moving and camera.current_animation == "Walk":
 		camera.stop()
 	if Input.is_action_just_pressed("aim") and !aiming:
 		camera.stop()
@@ -107,7 +109,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_exit_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/menu1.tscn")
 
 func _on_conitnue_pressed() -> void:
 	color_rect.hide()

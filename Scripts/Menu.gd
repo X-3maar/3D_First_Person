@@ -12,4 +12,16 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/online.tscn")
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/menu1.tscn")
+
+
+func _on_button_3_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+
+
+func _on_button_4_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/offline.tscn")

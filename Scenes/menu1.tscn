@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://dqg6g85pp7hmj"]
+[gd_scene format=3 uid="uid://cd2huqadkin5u"]
 
-[ext_resource type="Texture2D" uid="uid://bo1anjor2i4pr" path="res://Assets/SHADOW Series - Free Ui/borders/Sprite/border 1.png" id="1_cayip"]
-[ext_resource type="Script" uid="uid://bn0st7kfwh41x" path="res://Scripts/Menu.gd" id="1_jsrd8"]
-[ext_resource type="FontFile" uid="uid://b7ykkj6nf3rlo" path="res://Assets/Fortzilla_Font_1_14/TrueType (.ttf)/Fortzilla-Italic.ttf" id="2_wwsa2"]
-[ext_resource type="FontFile" uid="uid://cp0g06ukd0sfl" path="res://Assets/Fortzilla_Font_1_14/OpenType (.otf)/Fortzilla-Regular.otf" id="3_wwsa2"]
-[ext_resource type="Script" uid="uid://bbt5i5bjt6kmx" path="res://Scripts/Sea.gd" id="4_q3rjx"]
-[ext_resource type="PackedScene" uid="uid://dudq51g23l3rh" path="res://Scenes/Pistol.glb" id="5_wwsa2"]
+[ext_resource type="Script" uid="uid://bn0st7kfwh41x" path="res://Scripts/Menu.gd" id="1_iacwq"]
+[ext_resource type="Texture2D" uid="uid://bo1anjor2i4pr" path="res://Assets/SHADOW Series - Free Ui/borders/Sprite/border 1.png" id="2_i4gfs"]
+[ext_resource type="FontFile" uid="uid://b7ykkj6nf3rlo" path="res://Assets/Fortzilla_Font_1_14/TrueType (.ttf)/Fortzilla-Italic.ttf" id="3_ux43u"]
+[ext_resource type="FontFile" uid="uid://cp0g06ukd0sfl" path="res://Assets/Fortzilla_Font_1_14/OpenType (.otf)/Fortzilla-Regular.otf" id="4_6wi2s"]
+[ext_resource type="Script" uid="uid://bbt5i5bjt6kmx" path="res://Scripts/Sea.gd" id="5_liung"]
+[ext_resource type="PackedScene" uid="uid://dudq51g23l3rh" path="res://Scenes/Pistol.glb" id="6_pwl71"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -54,7 +54,7 @@ albedo_color = Color(0, 4.954765, 0, 1)
 albedo_color = Color(5.2480645, 5.2480645, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_158mb"]
-atlas = ExtResource("1_cayip")
+atlas = ExtResource("2_i4gfs")
 region = Rect2(58, 0, 58, 59)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wwsa2"]
@@ -69,7 +69,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsrd8"]
-atlas = ExtResource("1_cayip")
+atlas = ExtResource("2_i4gfs")
 region = Rect2(0, 0, 58, 59)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wbdvm"]
@@ -84,7 +84,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3rjx"]
-atlas = ExtResource("1_cayip")
+atlas = ExtResource("2_i4gfs")
 region = Rect2(54, 0, 9, 59)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6swd7"]
@@ -221,81 +221,82 @@ height = 108.22565
 sides = 20
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=659615867]
-script = ExtResource("1_jsrd8")
+script = ExtResource("1_iacwq")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=608542627]
 offset_right = 1171.0
 offset_bottom = 664.0
 color = Color(0, 0, 0, 0.2509804)
 
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=339838199]
+[node name="Button4" type="Button" parent="CanvasLayer" unique_id=339838199]
 offset_left = 350.0
 offset_top = 416.0
 offset_right = 804.0
 offset_bottom = 522.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button" unique_id=128722567]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button4" unique_id=128722567]
 position = Vector2(400, 53)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wwsa2")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Button" unique_id=898876839]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Button4" unique_id=898876839]
 position = Vector2(52, 53)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wbdvm")
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Button" unique_id=1171769958]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Button4" unique_id=1171769958]
 position = Vector2(227.5, 53)
 scale = Vector2(26.11111, 2)
 sprite_frames = SubResource("SpriteFrames_6swd7")
 
-[node name="Label" type="Label" parent="CanvasLayer/Button" unique_id=811311549]
+[node name="Label" type="Label" parent="CanvasLayer/Button4" unique_id=811311549]
 layout_mode = 0
 offset_left = 155.0
 offset_top = 12.0
 offset_right = 455.0
 offset_bottom = 112.0
-theme_override_fonts/font = ExtResource("2_wwsa2")
+theme_override_fonts/font = ExtResource("3_ux43u")
 theme_override_font_sizes/font_size = 64
 text = "Play"
 
-[node name="Button2" type="Button" parent="CanvasLayer" unique_id=1790187550]
+[node name="Button3" type="Button" parent="CanvasLayer" unique_id=1790187550]
 offset_left = 489.0
 offset_top = 533.0
 offset_right = 658.0
 offset_bottom = 572.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button2" unique_id=269428707]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button3" unique_id=269428707]
 position = Vector2(149, 19)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_wwsa2")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Button2" unique_id=1238714873]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Button3" unique_id=1238714873]
 position = Vector2(19, 19)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_wbdvm")
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Button2" unique_id=1314993318]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Button3" unique_id=1314993318]
 position = Vector2(84, 19)
 scale = Vector2(9.792, 0.75)
 sprite_frames = SubResource("SpriteFrames_6swd7")
 
-[node name="Label" type="Label" parent="CanvasLayer/Button2" unique_id=1792396093]
+[node name="Label" type="Label" parent="CanvasLayer/Button3" unique_id=1792396093]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 9.0
 offset_right = 133.0
 offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("2_wwsa2")
+theme_override_fonts/font = ExtResource("3_ux43u")
 theme_override_font_sizes/font_size = 16
-text = "Offline Mode"
+text = "Online Mode"
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1575585062]
 offset_left = 236.0
 offset_top = 64.0
 offset_right = 939.0
 offset_bottom = 361.0
-theme_override_fonts/font = ExtResource("3_wwsa2")
+theme_override_fonts/font = ExtResource("4_6wi2s")
 theme_override_font_sizes/font_size = 128
 text = "Chicks
 Warfare"
@@ -306,7 +307,7 @@ offset_left = -162.0
 offset_top = 617.0
 offset_right = 542.0
 offset_bottom = 914.0
-theme_override_fonts/font = ExtResource("3_wwsa2")
+theme_override_fonts/font = ExtResource("4_6wi2s")
 theme_override_font_sizes/font_size = 16
 text = "Copyright © 2026 3maar. All Rights Reserved."
 horizontal_alignment = 1
@@ -321,7 +322,7 @@ material = SubResource("StandardMaterial3D_kry3j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 92.98244, -1.6854477)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("4_q3rjx")
+script = ExtResource("5_liung")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sea/Killzone" unique_id=1666126956]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5291595, -220.5086, 0)
@@ -330,12 +331,12 @@ shape = SubResource("WorldBoundaryShape3D_8gbba")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1013363712]
 transform = Transform3D(-0.70323336, 0.50272405, -0.502724, 1.3400407e-09, 0.70710677, 0.7071068, 0.71095914, 0.4972611, -0.49726105, -50.062172, 52.85078, -49.63445)
 
-[node name="Pistol" parent="." unique_id=1551554293 instance=ExtResource("5_wwsa2")]
+[node name="Pistol" parent="." unique_id=1551554293 instance=ExtResource("6_pwl71")]
 transform = Transform3D(0.38251212, -0.087102756, -0.9198356, -0.69420606, 0.6298764, -0.34832987, 0.6097232, 0.77179587, 0.18046805, -49.92557, 52.533146, -48.806835)
 
-[node name="Pistol2" parent="." unique_id=25553460 instance=ExtResource("5_wwsa2")]
+[node name="Pistol2" parent="." unique_id=25553460 instance=ExtResource("6_pwl71")]
 transform = Transform3D(-0.62765694, 0.75677097, 0.18260688, 0.71549505, 0.65320754, -0.24776338, -0.3067805, -0.024855915, -0.95145565, -49.240757, 52.533146, -49.5219)
 
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Button2" to="CanvasLayer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button4" to="CanvasLayer" method="_on_button_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button3" to="CanvasLayer" method="_on_button_3_pressed"]
 [connection signal="body_entered" from="Sea/Killzone" to="Sea/Killzone" method="_on_body_entered"]

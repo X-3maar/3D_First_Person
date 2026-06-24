@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="3D_First_Person"
-run/main_scene="uid://civdpek2nl6s"
+run/main_scene="uid://cd2huqadkin5u"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
