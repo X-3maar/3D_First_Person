@@ -1,5 +1,5 @@
 extends CharacterBody3D
-@onready var marker_3d: Marker3D = $Node3D/Camera3D/Marker3D
+@onready var marker_3d: Marker3D = $Node3D/Camera3D/Pistol/Marker3D
 @onready var node_3d: Node3D = $Node3D
 @onready var camera_3d: Camera3D = $Node3D/Camera3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -9,7 +9,7 @@ extends CharacterBody3D
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../CanvasLayer/AnimatedSprite2D"
 @onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
 var shot = false
-
+var aim = false
 var is_paused = false
 var is_locked = true
 var target= 75
@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	if Input.is_action_pressed("run") and Input.is_action_pressed("move_front"):
+	if Input.is_action_pressed("run") and Input.is_action_pressed("move_front") and !aim:
 		SPEED = 30 
 		if !sprint:
 			animation_player.play("sprintin")
@@ -59,10 +59,14 @@ func _physics_process(delta: float) -> void:
 			sprint = false
 	var input_dir := Input.get_vector("move_left", "move_right", "move_front", "move_back")
 	var direction = (node_3d.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	if direction and ! aim:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		animation_player_2.play("idle")
+		if !aim and !shot:
+			animation_player_2.play("idle")
+	elif direction and aim:
+		velocity.x = direction.x * SPEED * 0.4
+		velocity.z = direction.z * SPEED * 0.4
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -88,11 +92,19 @@ func _physics_process(delta: float) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Input.is_action_just_pressed("shoot"):
 		shot = true
-		animation_player_2.play("shoot")
+		if !aim:
+			animation_player_2.play("shoot")
 		shoot()
 		await animation_player_2.animation_finished
 		shot = false
-	
+	if Input.is_action_just_pressed("aim") and !aim and !shot:
+		animation_player.play("aim")
+		animation_player_2.play("aimout")
+		aim = true
+	elif Input.is_action_just_pressed("aim") and aim:
+		animation_player.play("aimout")
+		animation_player_2.play("aim")
+		aim = false
 
 	move_and_slide()
 

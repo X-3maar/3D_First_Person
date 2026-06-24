@@ -361,7 +361,7 @@ theme_override_font_sizes/font_size = 32
 text = "II"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1796561323]
-position = Vector2(568, 304)
+position = Vector2(575, 315)
 sprite_frames = SubResource("SpriteFrames_21xkr")
 
 [node name="Player" parent="." unique_id=160261987 instance=ExtResource("2_bo1nx")]

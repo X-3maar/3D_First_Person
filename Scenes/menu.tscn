@@ -1,9 +1,187 @@
 [gd_scene format=3 uid="uid://dqg6g85pp7hmj"]
 
-[node name="menu" type="Control" unique_id=246702448]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" uid="uid://byhopf4qdwph1" path="res://Scripts/menu.gd" id="1_xhh6f"]
+[ext_resource type="FontFile" uid="uid://d3fbtiba15r1q" path="res://Assets/Pixelmax-Regular.otf" id="2_cayip"]
+[ext_resource type="FontFile" uid="uid://k2p6af21t3g6" path="res://Assets/Pixels.ttf" id="3_cayip"]
+[ext_resource type="PackedScene" uid="uid://ci5acyjstf4uw" path="res://Assets/Models/GLB format/animal-chick.glb" id="4_158mb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cayip"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_158mb"]
+sky_material = SubResource("ProceduralSkyMaterial_cayip")
+
+[sub_resource type="Environment" id="Environment_wwsa2"]
+background_mode = 2
+sky = SubResource("Sky_158mb")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Menu" type="Node3D" unique_id=507145833]
+script = ExtResource("1_xhh6f")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1561524109]
+environment = SubResource("Environment_wwsa2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1733271060]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Label" type="Label" parent="." unique_id=2094362366]
+offset_left = 301.0
+offset_top = 83.0
+offset_right = 903.0
+offset_bottom = 356.0
+theme_override_fonts/font = ExtResource("2_cayip")
+theme_override_font_sizes/font_size = 128
+text = "Chicken
+Warfare"
+
+[node name="Button" type="Button" parent="." unique_id=871968586]
+offset_left = 348.0
+offset_top = 378.0
+offset_right = 831.0
+offset_bottom = 563.0
+theme_override_fonts/font = ExtResource("3_cayip")
+theme_override_font_sizes/font_size = 256
+
+[node name="ColorRect" type="ColorRect" parent="Button" unique_id=987859180]
+layout_mode = 0
+offset_right = 483.0
+offset_bottom = 9.0
+
+[node name="ColorRect2" type="ColorRect" parent="Button" unique_id=602741500]
+layout_mode = 0
+offset_top = 175.0
+offset_right = 483.0
+offset_bottom = 184.0
+
+[node name="ColorRect3" type="ColorRect" parent="Button" unique_id=772774774]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 9.0
+offset_bottom = 184.0
+
+[node name="ColorRect4" type="ColorRect" parent="Button" unique_id=836433891]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 8.0
+offset_right = 483.0
+offset_bottom = 184.0
+
+[node name="Label" type="Label" parent="Button" unique_id=2083386837]
+layout_mode = 0
+offset_left = 119.0
+offset_top = -43.0
+offset_right = 680.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("3_cayip")
+theme_override_font_sizes/font_size = 256
+text = "Play"
+
+[node name="Base" type="Node3D" parent="." unique_id=1316843240]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Bridge" type="Node3D" parent="Base" unique_id=1383462992]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Base/Bridge" unique_id=442006984]
+use_collision = true
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=1446180969]
+transform = Transform3D(-4.7689124e-08, 0, 1.091, 0, 2.7, 0, -1.091, 0, -4.7689124e-08, 0, -1.9140471, 127.027)
+use_collision = true
+size = Vector3(164.27576, 1.1818848, 19.788086)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=1039386915]
+transform = Transform3D(-4.7689124e-08, 0, 1.091, 0, 2.7, 0, -1.091, 0, -4.7689124e-08, 0, -1.9140471, -128.80936)
+use_collision = true
+size = Vector3(164.27576, 1.1818848, 19.788086)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=938648095]
+transform = Transform3D(1.092, 0, 0, 0, 2.7, 0, 0, 0, 1.092, -128.47083, -1.914, 0)
+use_collision = true
+size = Vector3(164.27576, 1.1818848, 19.788086)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=1725234266]
+transform = Transform3D(1.091, 0, 0, 0, 2.7, 0, 0, 0, 1.091, 122.47042, -1.914, 0)
+use_collision = true
+size = Vector3(164.27576, 1.1818848, 19.788086)
+
+[node name="Towers" type="Node3D" parent="Base" unique_id=358686687]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Base/Towers" unique_id=447416326]
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=2137436245]
+transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 0, -408.63834, 0)
+use_collision = true
+height = 8171.166
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D" unique_id=1743833678]
+transform = Transform3D(0.9800036, 0, 0, 0, 1.6900002, 0, 0, 0, 0.9800036, 0, 4175, 0)
+operation = 2
+use_collision = true
+height = 108.22565
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1244985715]
+transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 0, -408.63834, 250)
+use_collision = true
+height = 8171.166
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D2" unique_id=786060597]
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4175, 0)
+operation = 2
+use_collision = true
+height = 108.22565
+sides = 20
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=697677569]
+transform = Transform3D(100.000015, 0, 0, 0, 0.1, 0, 0, 0, 100.000015, 0, -408.63834, -250.00006)
+use_collision = true
+height = 8171.166
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D3" unique_id=603062633]
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4175, 0)
+operation = 2
+use_collision = true
+height = 108.22565
+sides = 20
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1973481259]
+transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, 250, -408.63834, 0)
+use_collision = true
+height = 8171.166
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D4" unique_id=1882822650]
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4175, 0)
+operation = 2
+use_collision = true
+height = 108.22565
+sides = 20
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1228888051]
+transform = Transform3D(100, 0, 0, 0, 0.1, 0, 0, 0, 100, -250, -408.63834, 0)
+use_collision = true
+height = 8171.166
+sides = 20
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D5" unique_id=1013679330]
+transform = Transform3D(0.9800001, 0, 0, 0, 1.69, 0, 0, 0, 0.9800001, 0, 4175, 0)
+operation = 2
+use_collision = true
+height = 108.22565
+sides = 20
+
+[node name="Camera3D" type="Camera3D" parent="Base" unique_id=1160095657]
+transform = Transform3D(1.59223, 0.06207078, -1.208698, -0.033687472, 1.9988673, 0.058271833, 1.2098219, -0.02603206, 1.5923736, -384.6192, 250.87152, 490.18097)
+
+[node name="animal-chick2" parent="." unique_id=210148903 instance=ExtResource("4_158mb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.42186, 99.654785, 126.9254)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
