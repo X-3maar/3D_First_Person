@@ -222,6 +222,44 @@ animations = [{
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8gbba"]
 
+[sub_resource type="Animation" id="Animation_28k5y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-33.588554, 28.555992, 245.78214)]
+}
+
+[sub_resource type="Animation" id="Animation_gakmo"]
+resource_name = "moving"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-33.588554, 28.555992, 245.78214), Vector3(34.39251, 28.555992, 245.78214)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_101v6"]
+_data = {
+&"RESET": SubResource("Animation_28k5y"),
+&"moving": SubResource("Animation_gakmo")
+}
+
 [sub_resource type="Animation" id="Animation_n2ri7"]
 length = 0.001
 tracks/0/type = "value"
@@ -1297,6 +1335,21 @@ transform = Transform3D(100, 0, -1.8189894e-12, 0, 100, 0, 1.8189894e-12, 0, 100
 use_collision = true
 size = Vector3(1, 0.033203125, 1)
 
+[node name="CSGBox3D15" type="CSGBox3D" parent="Base/Group" unique_id=592213652]
+transform = Transform3D(100, -1.509958e-05, 1.5099579e-05, 1.5099578e-05, -4.371139e-06, -100, 1.509958e-05, 100, -4.3711366e-06, 211.63936, 179.66338, -1605.5283)
+use_collision = true
+size = Vector3(1, 0.033203125, 1)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Base/Group" unique_id=1617555536]
+transform = Transform3D(100, -1.509958e-05, 1.5099579e-05, 1.5099578e-05, -4.371139e-06, -100, 1.509958e-05, 100, -4.3711366e-06, -209.65729, 179.66338, -1605.5283)
+use_collision = true
+size = Vector3(1, 0.033203125, 1)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Base/Group" unique_id=1418441146]
+transform = Transform3D(100, -1.509958e-05, 1.5099579e-05, 1.5099578e-05, -4.371139e-06, -100, 1.509958e-05, 100, -4.3711366e-06, 1.9403467, 179.66338, -1605.5283)
+use_collision = true
+size = Vector3(1, 0.033203125, 1)
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="Base/Group" unique_id=887673530]
 transform = Transform3D(100, 0, -1.8189894e-12, 0, 100, 0, 1.8189894e-12, 0, 100, 211.63925, 22.867138, -943.51294)
 use_collision = true
@@ -1475,6 +1528,34 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07
 
 [node name="Target3" parent="." unique_id=1204144971 instance=ExtResource("6_32xgo")]
 transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, 35.74963, 26.44091, 182.56624)
+
+[node name="Target5" parent="." unique_id=1605716892 instance=ExtResource("6_32xgo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -33.588554, 28.555992, 245.78214)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Target5" unique_id=386243992]
+libraries/ = SubResource("AnimationLibrary_101v6")
+autoplay = &"moving"
+
+[node name="Target6" parent="." unique_id=1863335309 instance=ExtResource("6_32xgo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07619393, 28.555992, 329.68076)
+
+[node name="Target7" parent="." unique_id=1312120828 instance=ExtResource("6_32xgo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07619393, 28.555992, 403.4929)
+
+[node name="Target8" parent="." unique_id=179375216 instance=ExtResource("6_32xgo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07619393, 28.555992, 477.77423)
+
+[node name="Target9" parent="." unique_id=1350698917 instance=ExtResource("6_32xgo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07619393, 28.555992, 551.9145)
+
+[node name="Target10" parent="." unique_id=1170970009 instance=ExtResource("6_32xgo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07619393, 28.555992, 624.6567)
+
+[node name="Target11" parent="." unique_id=359660663 instance=ExtResource("6_32xgo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07619393, 28.555992, 697.80035)
+
+[node name="Target12" parent="." unique_id=24085345 instance=ExtResource("6_32xgo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07619393, 28.555992, 769.9745)
 
 [node name="Gate" parent="." unique_id=1059004005 instance=ExtResource("7_n2ri7")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 2.8374233, 36.95393)
