@@ -4,54 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bo1anjor2i4pr" path="res://Assets/SHADOW Series - Free Ui/borders/Sprite/border 1.png" id="2_i4gfs"]
 [ext_resource type="FontFile" uid="uid://b7ykkj6nf3rlo" path="res://Assets/Fortzilla_Font_1_14/TrueType (.ttf)/Fortzilla-Italic.ttf" id="3_ux43u"]
 [ext_resource type="FontFile" uid="uid://cp0g06ukd0sfl" path="res://Assets/Fortzilla_Font_1_14/OpenType (.otf)/Fortzilla-Regular.otf" id="4_6wi2s"]
+[ext_resource type="PackedScene" uid="uid://dmeplcttslfwr" path="res://Scenes/target.tscn" id="5_iacwq"]
 [ext_resource type="Script" uid="uid://bbt5i5bjt6kmx" path="res://Scripts/Sea.gd" id="5_liung"]
-[ext_resource type="PackedScene" uid="uid://dudq51g23l3rh" path="res://Scenes/Pistol.glb" id="6_pwl71"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_bo1nx"]
-sky_material = SubResource("ProceduralSkyMaterial_jjgbg")
-
-[sub_resource type="Environment" id="Environment_8gbba"]
-background_mode = 2
-sky = SubResource("Sky_bo1nx")
-tonemap_mode = 2
-glow_enabled = true
-fog_enabled = true
-fog_light_color = Color(4.2114408e-08, 0.13238046, 0.14912716, 1)
-fog_light_energy = 0.0
-fog_sun_scatter = 0.2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21xkr"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bp64"]
-albedo_color = Color(0, 0, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_344ge"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ynf5e"]
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hptm8"]
-albedo_color = Color(5.700253, 4.238891, 12.230712, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iyac"]
-albedo_color = Color(4.954765, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkdf5"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdnlq"]
-albedo_color = Color(0, 0, 5.2480645, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wsu2k"]
-albedo_color = Color(0, 4.954765, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1ilt"]
-albedo_color = Color(5.2480645, 5.2480645, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_158mb"]
 atlas = ExtResource("2_i4gfs")
@@ -98,127 +52,75 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kry3j"]
-albedo_color = Color(0, 0.78039217, 1, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i4gfs"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8gbba"]
+[sub_resource type="Sky" id="Sky_32xgo"]
+sky_material = SubResource("ProceduralSkyMaterial_i4gfs")
+
+[sub_resource type="Environment" id="Environment_ux43u"]
+background_mode = 2
+sky = SubResource("Sky_32xgo")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wi2s"]
+metallic = 0.25
+roughness = 0.63
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_liung"]
+metallic = 1.0
+roughness = 0.25
+
+[sub_resource type="Animation" id="Animation_32xgo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 22.272156, -249.332)]
+}
+
+[sub_resource type="Animation" id="Animation_n2ri7"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 22.272156, -249.332), Vector3(-30.96688, 22.272156, -249.332)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pwl71"]
+_data = {
+&"RESET": SubResource("Animation_32xgo"),
+&"open": SubResource("Animation_n2ri7")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32xgo"]
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="TextMesh" id="TextMesh_5r5du"]
+material = SubResource("StandardMaterial3D_32xgo")
+text = "Welcome to 
+Pistols Arena 3D"
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_mqfqw"]
 
 [node name="main" type="Node3D" unique_id=1663971755]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1537357348]
-environment = SubResource("Environment_8gbba")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=767576652]
-transform = Transform3D(-0.8660254, -0.50000006, -2.1855696e-08, 0, -4.371139e-08, 1, -0.50000006, 0.8660254, 3.7855173e-08, 0, 0, 0)
-shadow_enabled = true
-
-[node name="Base" type="Node3D" parent="." unique_id=1880712930]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
-
-[node name="Bridge" type="Node3D" parent="Base" unique_id=104132750]
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Base/Bridge" unique_id=608680247]
-use_collision = true
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=1488863261]
-transform = Transform3D(-4.7689124e-08, 0, 1.091, 0, 2.7, 0, -1.091, 0, -4.7689124e-08, 0, -1.9140471, 127.027)
-use_collision = true
-size = Vector3(164.27576, 1.1818848, 19.788086)
-material = SubResource("StandardMaterial3D_21xkr")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=463318362]
-transform = Transform3D(-4.7689124e-08, 0, 1.091, 0, 2.7, 0, -1.091, 0, -4.7689124e-08, 0, -1.9140471, -128.80936)
-use_collision = true
-size = Vector3(164.27576, 1.1818848, 19.788086)
-material = SubResource("StandardMaterial3D_6bp64")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=819240221]
-transform = Transform3D(1.092, 0, 0, 0, 2.7, 0, 0, 0, 1.092, -128.47083, -1.914, 0)
-use_collision = true
-size = Vector3(164.27576, 1.1818848, 19.788086)
-material = SubResource("StandardMaterial3D_344ge")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Base/Bridge/CSGCombiner3D" unique_id=400285464]
-transform = Transform3D(1.091, 0, 0, 0, 2.7, 0, 0, 0, 1.091, 122.47042, -1.914, 0)
-use_collision = true
-size = Vector3(164.27576, 1.1818848, 19.788086)
-material = SubResource("StandardMaterial3D_ynf5e")
-
-[node name="Towers" type="Node3D" parent="Base" unique_id=515382577]
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Base/Towers" unique_id=1210766688]
-use_collision = true
-
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1935630270]
-transform = Transform3D(200, 0, 0, 0, 0.1, 0, 0, 0, 200, 0, -408.63834, 0)
-use_collision = true
-height = 8171.166
-sides = 20
-material = SubResource("StandardMaterial3D_hptm8")
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D" unique_id=1072723513]
-transform = Transform3D(0.9800036, 0, 0, 0, 1.6900002, 0, 0, 0, 0.9800036, 0, 4175, 0)
-operation = 2
-use_collision = true
-height = 108.22565
-sides = 20
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1989048799]
-transform = Transform3D(100, 0, 0, 0, 0.10000001, 0, 0, 0, 100, 0, -2.7052593, 250)
-use_collision = true
-height = 52.50476
-sides = 20
-material = SubResource("StandardMaterial3D_6iyac")
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D2" unique_id=5805728]
-transform = Transform3D(0.9800001, 0, 0, 0, 1.6899998, 0, 0, 0, 0.9800001, 0, 115.66952, 0)
-operation = 2
-use_collision = true
-height = 108.22565
-sides = 20
-material = SubResource("StandardMaterial3D_jkdf5")
-
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1984336053]
-transform = Transform3D(100.000015, 0, 0, 0, 0.10000001, 0, 0, 0, 100.000015, 0, -2.6173065, -250.00006)
-use_collision = true
-height = 50.745483
-sides = 20
-material = SubResource("StandardMaterial3D_fdnlq")
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D3" unique_id=411162219]
-transform = Transform3D(0.9800001, 0, 0, 0, 1.6899999, 0, 0, 0, 0.9800001, 0, 114.78999, 0)
-operation = 2
-use_collision = true
-height = 108.22565
-sides = 20
-
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=830042715]
-transform = Transform3D(100, 0, 0, 0, 0.10000001, 0, 0, 0, 100, 250, -2.664013, 0)
-use_collision = true
-height = 51.680298
-sides = 20
-material = SubResource("StandardMaterial3D_wsu2k")
-
-[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D4" unique_id=1318204312]
-transform = Transform3D(0.9800001, 0, 0, 0, 1.6899997, 0, 0, 0, 0.9800001, 0, 115.25629, 0)
-operation = 2
-use_collision = true
-height = 108.22565
-sides = 20
-
-[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1044278640]
-transform = Transform3D(100, 0, 0, 0, 0.10000001, 0, 0, 0, 100, -250, -2.6594567, 0)
-use_collision = true
-height = 51.588745
-sides = 20
-material = SubResource("StandardMaterial3D_d1ilt")
-
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D/CSGCylinder3D5" unique_id=1344960242]
-transform = Transform3D(0.9800001, 0, 0, 0, 1.6899998, 0, 0, 0, 0.9800001, 0, 115.21149, 0)
-operation = 2
-use_collision = true
-height = 108.22565
-sides = 20
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=659615867]
 script = ExtResource("1_iacwq")
@@ -227,12 +129,14 @@ script = ExtResource("1_iacwq")
 offset_right = 1171.0
 offset_bottom = 664.0
 color = Color(0, 0, 0, 0.2509804)
+metadata/_edit_use_anchors_ = true
 
 [node name="Button4" type="Button" parent="CanvasLayer" unique_id=339838199]
 offset_left = 350.0
 offset_top = 416.0
 offset_right = 804.0
 offset_bottom = 522.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button4" unique_id=128722567]
 position = Vector2(400, 53)
@@ -258,12 +162,14 @@ offset_bottom = 112.0
 theme_override_fonts/font = ExtResource("3_ux43u")
 theme_override_font_sizes/font_size = 64
 text = "Play"
+metadata/_edit_use_anchors_ = true
 
 [node name="Button3" type="Button" parent="CanvasLayer" unique_id=1790187550]
 offset_left = 489.0
 offset_top = 533.0
 offset_right = 658.0
 offset_bottom = 572.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button3" unique_id=269428707]
 position = Vector2(149, 19)
@@ -290,17 +196,7 @@ theme_override_fonts/font = ExtResource("3_ux43u")
 theme_override_font_sizes/font_size = 16
 text = "Online Mode"
 horizontal_alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1575585062]
-offset_left = 236.0
-offset_top = 64.0
-offset_right = 939.0
-offset_bottom = 361.0
-theme_override_fonts/font = ExtResource("4_6wi2s")
-theme_override_font_sizes/font_size = 128
-text = "Chicks
-Warfare"
-horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="CanvasLayer" unique_id=1274235831]
 offset_left = -162.0
@@ -311,31 +207,99 @@ theme_override_fonts/font = ExtResource("4_6wi2s")
 theme_override_font_sizes/font_size = 16
 text = "Copyright © 2026 3maar. All Rights Reserved."
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Sea" type="Node3D" parent="." unique_id=1725388447]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=114721127]
+environment = SubResource("Environment_ux43u")
 
-[node name="Water" type="CSGBox3D" parent="Sea" unique_id=637818159]
-transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, -154.25317, 0)
-material = SubResource("StandardMaterial3D_kry3j")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=235918169]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+sky_mode = 1
 
-[node name="Killzone" type="Area3D" parent="Sea" unique_id=1450338288]
+[node name="Base" type="Node3D" parent="." unique_id=281211672]
+transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, -3.2823944, 0, -0.56277657)
+
+[node name="Towers" type="Node3D" parent="Base" unique_id=1555787203]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Base/Towers" unique_id=1140325447]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=39354528]
+transform = Transform3D(500, 0, 0, 0, 0.5, 0, 0, 0, 500, 0, -0.78000003, 0)
+material = SubResource("StandardMaterial3D_6wi2s")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=2124192298]
+transform = Transform3D(-2.1855692e-05, 8.778767, -2.1855692e-05, 0, -3.8373216e-07, -499.99997, -499.99997, -3.8373216e-07, 9.553427e-13, 250, 167.02979, 1.5661929e-13)
+size = Vector3(1, 1, 0.67211914)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D2" unique_id=1134012340]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.1391993, 1.0913936e-11, 0, 3.469447e-18, 1.0000002, 0.0059814462, -6.1035156e-05, -0.22244269)
+operation = 2
+size = Vector3(0.83569336, 1, 0.089416504)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=842428005]
+transform = Transform3D(-2.1855687e-05, 9.732756, -2.1855687e-05, 0, -4.254323e-07, -499.99994, -499.99994, -4.254323e-07, 9.553427e-13, -250, 167.03001, 0)
+size = Vector3(1, 1, 0.67211914)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D3" unique_id=99431893]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.1391993, 1.0913936e-11, 0, 3.469447e-18, 1.0000002, 0.0059814462, -6.1035156e-05, -0.22244269)
+operation = 2
+size = Vector3(0.83569336, 1, 0.089416504)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=660983298]
+transform = Transform3D(500, 0, 0, 0, -6.6643224e-07, -500, 0, 15.246195, -2.1855694e-05, 0, 167.03001, 250)
+size = Vector3(1, 1, 0.67211914)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D4" unique_id=896371601]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.1391993, 1.0913936e-11, 0, 3.469447e-18, 1.0000002, 0.0059814462, -6.1035156e-05, -0.22244269)
+operation = 2
+size = Vector3(0.83569336, 1, 0.089416504)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=648677153]
+transform = Transform3D(500, 0, 0, 0, -2.3492647e-07, -499.99997, 0, 5.3744917, -2.1855687e-05, 0, 167.03001, -250)
+size = Vector3(1, 1, 0.67211914)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D5" unique_id=1792010447]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.1391993, 1.0913936e-11, 0, 3.469447e-18, 1.0000002, 0.0059814462, -6.1035156e-05, -0.22244269)
+operation = 2
+size = Vector3(0.83569336, 1, 0.089416504)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D5" unique_id=1592933787]
+transform = Transform3D(0.07581636, 0, 0, 0, 1.1391991, 2.910383e-11, 0, 0, 1.0000005, -0.00013483524, -3.0517578e-05, 0.29004723)
+operation = 2
+size = Vector3(0.83569336, 1, 0.089416504)
+
+[node name="Gate" type="CSGBox3D" parent="Base/Towers" unique_id=896362324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.272156, -249.332)
+size = Vector3(31.69751, 45.54431, 2.137207)
+material = SubResource("StandardMaterial3D_liung")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Base/Towers/Gate" unique_id=276499300]
+libraries/ = SubResource("AnimationLibrary_pwl71")
+
+[node name="Target" parent="Base/Towers" unique_id=20653629 instance=ExtResource("5_iacwq")]
+transform = Transform3D(-2.1855692e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855692e-07, -32.823933, 31.766947, -246.81781)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Base" unique_id=1172212758]
+transform = Transform3D(249.99998, 0, -1.1368684e-12, 0, 249.99998, 0, 1.1368684e-12, 0, 249.99998, 0, 174.263, -245.028)
+mesh = SubResource("TextMesh_5r5du")
+
+[node name="Sea" type="Node3D" parent="." unique_id=1840372182]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -3.2823944, 0, -24.68178)
+
+[node name="Killzone" type="Area3D" parent="Sea" unique_id=1798569103]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 92.98244, -1.6854477)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("5_liung")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sea/Killzone" unique_id=1666126956]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sea/Killzone" unique_id=354846113]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5291595, -220.5086, 0)
-shape = SubResource("WorldBoundaryShape3D_8gbba")
+shape = SubResource("WorldBoundaryShape3D_mqfqw")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1013363712]
-transform = Transform3D(-0.70323336, 0.50272405, -0.502724, 1.3400407e-09, 0.70710677, 0.7071068, 0.71095914, 0.4972611, -0.49726105, -50.062172, 52.85078, -49.63445)
-
-[node name="Pistol" parent="." unique_id=1551554293 instance=ExtResource("6_pwl71")]
-transform = Transform3D(0.38251212, -0.087102756, -0.9198356, -0.69420606, 0.6298764, -0.34832987, 0.6097232, 0.77179587, 0.18046805, -49.92557, 52.533146, -48.806835)
-
-[node name="Pistol2" parent="." unique_id=25553460 instance=ExtResource("6_pwl71")]
-transform = Transform3D(-0.62765694, 0.75677097, 0.18260688, 0.71549505, 0.65320754, -0.24776338, -0.3067805, -0.024855915, -0.95145565, -49.240757, 52.533146, -49.5219)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=568824243]
+transform = Transform3D(-1, -4.4408926e-16, -8.7422784e-08, 1.5452706e-08, 0.9842543, -0.17675835, 8.604624e-08, -0.17675835, -0.9842543, -2.2373629, 14.283096, 15.312792)
 
 [connection signal="pressed" from="CanvasLayer/Button4" to="CanvasLayer" method="_on_button_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button3" to="CanvasLayer" method="_on_button_3_pressed"]

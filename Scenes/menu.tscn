@@ -98,6 +98,81 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbdvm"]
+atlas = ExtResource("1_cayip")
+region = Rect2(0, 0, 58, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q3rjx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbdvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6swd7"]
+atlas = ExtResource("1_cayip")
+region = Rect2(0, 29, 58, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qvly"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6swd7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfqti"]
+atlas = ExtResource("1_cayip")
+region = Rect2(58, 29, 58, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8i7c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfqti")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23t3j"]
+atlas = ExtResource("1_cayip")
+region = Rect2(58, 0, 58, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ph6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23t3j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ti5v"]
+atlas = ExtResource("1_cayip")
+region = Rect2(54, 0, 9, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1by5w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ti5v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kry3j"]
 albedo_color = Color(0, 0.78039217, 1, 1)
 
@@ -228,28 +303,28 @@ offset_right = 1171.0
 offset_bottom = 664.0
 color = Color(0, 0, 0, 0.2509804)
 
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=339838199]
+[node name="Online" type="Button" parent="CanvasLayer" unique_id=339838199]
 offset_left = 350.0
 offset_top = 416.0
 offset_right = 804.0
 offset_bottom = 522.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button" unique_id=128722567]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Online" unique_id=128722567]
 position = Vector2(400, 53)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wwsa2")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Button" unique_id=898876839]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Online" unique_id=898876839]
 position = Vector2(52, 53)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wbdvm")
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Button" unique_id=1171769958]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Online" unique_id=1171769958]
 position = Vector2(227.5, 53)
 scale = Vector2(26.11111, 2)
 sprite_frames = SubResource("SpriteFrames_6swd7")
 
-[node name="Label" type="Label" parent="CanvasLayer/Button" unique_id=811311549]
+[node name="Label" type="Label" parent="CanvasLayer/Online" unique_id=811311549]
 layout_mode = 0
 offset_left = 155.0
 offset_top = 12.0
@@ -297,8 +372,8 @@ offset_right = 939.0
 offset_bottom = 361.0
 theme_override_fonts/font = ExtResource("3_wwsa2")
 theme_override_font_sizes/font_size = 128
-text = "Chicks
-Warfare"
+text = "Pistols
+Arena"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer" unique_id=1274235831]
@@ -309,6 +384,163 @@ offset_bottom = 914.0
 theme_override_fonts/font = ExtResource("3_wwsa2")
 theme_override_font_sizes/font_size = 16
 text = "Copyright © 2026 3maar. All Rights Reserved."
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1211136194]
+visible = false
+offset_left = 349.0
+offset_top = 146.0
+offset_right = 805.99994
+offset_bottom = 521.0
+color = Color(0, 0, 0, 0.64705884)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=816812750]
+position = Vector2(26, 11)
+sprite_frames = SubResource("SpriteFrames_q3rjx")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=1528321706]
+position = Vector2(26, 363)
+sprite_frames = SubResource("SpriteFrames_7qvly")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=1016498282]
+position = Vector2(430, 363)
+sprite_frames = SubResource("SpriteFrames_g8i7c")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=187459196]
+position = Vector2(430, 11)
+sprite_frames = SubResource("SpriteFrames_8ph6h")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=1688450107]
+position = Vector2(223.25, 11)
+scale = Vector2(39.61111, 1)
+sprite_frames = SubResource("SpriteFrames_1by5w")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=1603254357]
+position = Vector2(223.25, 385)
+scale = Vector2(39.61111, 1)
+sprite_frames = SubResource("SpriteFrames_1by5w")
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=1551728087]
+position = Vector2(445.54532, 186.73402)
+rotation = 1.5707964
+scale = Vector2(36.13012, 0.99611104)
+sprite_frames = SubResource("SpriteFrames_1by5w")
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=1672908707]
+position = Vector2(11.531336, 186.70462)
+rotation = -1.5707964
+scale = Vector2(36.136654, 1.0030091)
+sprite_frames = SubResource("SpriteFrames_1by5w")
+
+[node name="Host" type="Button" parent="CanvasLayer/ColorRect2" unique_id=1152274353]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 33.0
+offset_right = 369.0
+offset_bottom = 85.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host" unique_id=483871093]
+position = Vector2(257, 26)
+sprite_frames = SubResource("SpriteFrames_wwsa2")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host" unique_id=1607373821]
+position = Vector2(26, 26)
+sprite_frames = SubResource("SpriteFrames_wbdvm")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host" unique_id=1817052440]
+position = Vector2(140.99998, 26)
+scale = Vector2(20.666664, 1)
+sprite_frames = SubResource("SpriteFrames_6swd7")
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect2/Host" unique_id=646358795]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 7.0
+offset_right = 189.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_wwsa2")
+theme_override_font_sizes/font_size = 32
+text = "Host"
+horizontal_alignment = 1
+
+[node name="Join" type="Button" parent="CanvasLayer/ColorRect2" unique_id=622501195]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 185.0
+offset_right = 369.0
+offset_bottom = 237.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Join" unique_id=1847258919]
+position = Vector2(257, 26)
+sprite_frames = SubResource("SpriteFrames_wwsa2")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Join" unique_id=106004919]
+position = Vector2(26, 26)
+sprite_frames = SubResource("SpriteFrames_wbdvm")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Join" unique_id=222508701]
+position = Vector2(140.99998, 26)
+scale = Vector2(20.666664, 1)
+sprite_frames = SubResource("SpriteFrames_6swd7")
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect2/Join" unique_id=2082910005]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 7.0
+offset_right = 189.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_wwsa2")
+theme_override_font_sizes/font_size = 32
+text = "Join"
+horizontal_alignment = 1
+
+[node name="Host3" type="Button" parent="CanvasLayer/ColorRect2" unique_id=2121484368]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 285.0
+offset_right = 369.0
+offset_bottom = 337.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host3" unique_id=1646731977]
+position = Vector2(257, 26)
+sprite_frames = SubResource("SpriteFrames_wwsa2")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host3" unique_id=278015179]
+position = Vector2(26, 26)
+sprite_frames = SubResource("SpriteFrames_wbdvm")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host3" unique_id=1615194334]
+position = Vector2(140.99998, 26)
+scale = Vector2(20.666664, 1)
+sprite_frames = SubResource("SpriteFrames_6swd7")
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect2/Host3" unique_id=805366147]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 7.0
+offset_right = 253.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_wwsa2")
+theme_override_font_sizes/font_size = 32
+text = "Back to Menu"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/ColorRect2" unique_id=272680968]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 112.0
+offset_right = 369.0
+offset_bottom = 156.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect2/LineEdit" unique_id=1254362817]
+layout_mode = 0
+offset_left = -94.0
+offset_top = 2.0
+offset_right = 9.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("2_wwsa2")
+theme_override_font_sizes/font_size = 32
+text = "Port: "
 horizontal_alignment = 1
 
 [node name="Sea" type="Node3D" parent="." unique_id=1725388447]
@@ -336,6 +568,9 @@ transform = Transform3D(0.38251212, -0.087102756, -0.9198356, -0.69420606, 0.629
 [node name="Pistol2" parent="." unique_id=25553460 instance=ExtResource("5_wwsa2")]
 transform = Transform3D(-0.62765694, 0.75677097, 0.18260688, 0.71549505, 0.65320754, -0.24776338, -0.3067805, -0.024855915, -0.95145565, -49.240757, 52.533146, -49.5219)
 
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Online" to="CanvasLayer" method="_on_online_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="CanvasLayer" method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Host" to="CanvasLayer" method="_on_host_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Join" to="CanvasLayer" method="_on_join_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect2/Host3" to="CanvasLayer" method="_on_host_3_pressed"]
 [connection signal="body_entered" from="Sea/Killzone" to="Sea/Killzone" method="_on_body_entered"]
