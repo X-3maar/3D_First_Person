@@ -7,6 +7,51 @@
 [ext_resource type="PackedScene" uid="uid://dmeplcttslfwr" path="res://Scenes/target.tscn" id="5_iacwq"]
 [ext_resource type="Script" uid="uid://bbt5i5bjt6kmx" path="res://Scripts/Sea.gd" id="5_liung"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwl71"]
+atlas = ExtResource("2_i4gfs")
+region = Rect2(58, 0, 58, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwl71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwl71")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqfqw"]
+atlas = ExtResource("2_i4gfs")
+region = Rect2(0, 0, 58, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mqfqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqfqw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1cut"]
+atlas = ExtResource("2_i4gfs")
+region = Rect2(54, 0, 9, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1cut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1cut")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_158mb"]
 atlas = ExtResource("2_i4gfs")
 region = Rect2(58, 0, 58, 59)
@@ -46,6 +91,114 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q3rjx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbdvm"]
+atlas = ExtResource("2_i4gfs")
+region = Rect2(0, 0, 58, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iacwq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbdvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6swd7"]
+atlas = ExtResource("2_i4gfs")
+region = Rect2(0, 29, 58, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4gfs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6swd7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfqti"]
+atlas = ExtResource("2_i4gfs")
+region = Rect2(58, 29, 58, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ux43u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfqti")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23t3j"]
+atlas = ExtResource("2_i4gfs")
+region = Rect2(58, 0, 58, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6wi2s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23t3j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ti5v"]
+atlas = ExtResource("2_i4gfs")
+region = Rect2(54, 0, 9, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_liung"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ti5v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5r5du"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwl71")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6imfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqfqw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jicq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1cut")
 }],
 "loop": true,
 "name": &"default",
@@ -124,6 +277,82 @@ Pistols Arena 3D"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=659615867]
 script = ExtResource("1_iacwq")
+
+[node name="Online" type="Button" parent="CanvasLayer" unique_id=718442455]
+visible = false
+offset_left = 350.0
+offset_top = 416.0
+offset_right = 804.0
+offset_bottom = 522.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Online" unique_id=1878796841]
+position = Vector2(400, 53)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pwl71")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Online" unique_id=1539598000]
+position = Vector2(52, 53)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_mqfqw")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Online" unique_id=878448121]
+position = Vector2(227.5, 53)
+scale = Vector2(26.11111, 2)
+sprite_frames = SubResource("SpriteFrames_e1cut")
+
+[node name="Label" type="Label" parent="CanvasLayer/Online" unique_id=92083160]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 12.0
+offset_right = 455.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("3_ux43u")
+theme_override_font_sizes/font_size = 64
+text = "Play"
+
+[node name="Button2" type="Button" parent="CanvasLayer" unique_id=493613356]
+visible = false
+offset_left = 489.0
+offset_top = 533.0
+offset_right = 658.0
+offset_bottom = 572.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button2" unique_id=775350314]
+position = Vector2(149, 19)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_pwl71")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Button2" unique_id=525242621]
+position = Vector2(19, 19)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_mqfqw")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Button2" unique_id=1838891035]
+position = Vector2(84, 19)
+scale = Vector2(9.792, 0.75)
+sprite_frames = SubResource("SpriteFrames_e1cut")
+
+[node name="Label" type="Label" parent="CanvasLayer/Button2" unique_id=449732653]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 133.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("3_ux43u")
+theme_override_font_sizes/font_size = 16
+text = "Offline Mode"
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1748831060]
+visible = false
+offset_left = 236.0
+offset_top = 64.0
+offset_right = 939.0
+offset_bottom = 361.0
+theme_override_fonts/font = ExtResource("4_6wi2s")
+theme_override_font_sizes/font_size = 128
+text = "Pistols
+Arena"
+horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=608542627]
 offset_right = 1171.0
@@ -208,6 +437,94 @@ theme_override_font_sizes/font_size = 16
 text = "Copyright © 2026 3maar. All Rights Reserved."
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=1732954115]
+visible = false
+offset_left = 349.0
+offset_top = 146.0
+offset_right = 805.99994
+offset_bottom = 521.0
+color = Color(0, 0, 0, 0.64705884)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=519714658]
+position = Vector2(26, 11)
+sprite_frames = SubResource("SpriteFrames_iacwq")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=59239704]
+position = Vector2(26, 363)
+sprite_frames = SubResource("SpriteFrames_i4gfs")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=2043967137]
+position = Vector2(430, 363)
+sprite_frames = SubResource("SpriteFrames_ux43u")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=545165377]
+position = Vector2(430, 11)
+sprite_frames = SubResource("SpriteFrames_6wi2s")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=1070038210]
+position = Vector2(223.25, 11)
+scale = Vector2(39.61111, 1)
+sprite_frames = SubResource("SpriteFrames_liung")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=592813858]
+position = Vector2(223.25, 385)
+scale = Vector2(39.61111, 1)
+sprite_frames = SubResource("SpriteFrames_liung")
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=371587435]
+position = Vector2(445.54532, 186.73402)
+rotation = 1.5707964
+scale = Vector2(36.13012, 0.99611104)
+sprite_frames = SubResource("SpriteFrames_liung")
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2" unique_id=2052713735]
+position = Vector2(11.531336, 186.70462)
+rotation = -1.5707964
+scale = Vector2(36.136654, 1.0030091)
+sprite_frames = SubResource("SpriteFrames_liung")
+
+[node name="Host3" type="Button" parent="CanvasLayer/ColorRect2" unique_id=1592744989]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 285.0
+offset_right = 369.0
+offset_bottom = 337.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host3" unique_id=1336173855]
+position = Vector2(257, 26)
+sprite_frames = SubResource("SpriteFrames_5r5du")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host3" unique_id=60371249]
+position = Vector2(26, 26)
+sprite_frames = SubResource("SpriteFrames_6imfw")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host3" unique_id=1573620681]
+position = Vector2(140.99998, 26)
+scale = Vector2(20.666664, 1)
+sprite_frames = SubResource("SpriteFrames_3jicq")
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect2/Host3" unique_id=1210882691]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 7.0
+offset_right = 253.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("3_ux43u")
+theme_override_font_sizes/font_size = 32
+text = "Back to Menu"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect2" unique_id=560353344]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 121.0
+offset_right = 326.0
+offset_bottom = 158.0
+theme_override_fonts/font = ExtResource("3_ux43u")
+theme_override_font_sizes/font_size = 32
+text = "Coming Soon"
+horizontal_alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=114721127]
 environment = SubResource("Environment_ux43u")

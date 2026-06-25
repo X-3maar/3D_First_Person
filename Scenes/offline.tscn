@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cgfg7xpuisx62" path="res://Scenes/player.tscn" id="5_0qj8b"]
 [ext_resource type="Script" uid="uid://bbt5i5bjt6kmx" path="res://Scripts/Sea.gd" id="5_vuhub"]
 [ext_resource type="PackedScene" uid="uid://dmeplcttslfwr" path="res://Scenes/target.tscn" id="6_32xgo"]
+[ext_resource type="PackedScene" uid="uid://cqndcilr0pim1" path="res://Scenes/gate.tscn" id="7_n2ri7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m86ib"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -24,52 +25,12 @@ glow_enabled = true
 metallic = 0.25
 roughness = 0.63
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qj8b"]
-metallic = 1.0
-roughness = 0.25
-
-[sub_resource type="Animation" id="Animation_32xgo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 22.272156, -249.332)]
-}
-
-[sub_resource type="Animation" id="Animation_n2ri7"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 22.272156, -249.332), Vector3(-30.96688, 22.272156, -249.332)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qj8b"]
-_data = {
-&"RESET": SubResource("Animation_32xgo"),
-&"open": SubResource("Animation_n2ri7")
-}
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32xgo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpwhx"]
 metallic = 1.0
 roughness = 0.0
 
 [sub_resource type="TextMesh" id="TextMesh_n2ri7"]
-material = SubResource("StandardMaterial3D_32xgo")
+material = SubResource("StandardMaterial3D_kpwhx")
 text = "Welcome to 
 Pistols Arena 3D"
 
@@ -237,6 +198,10 @@ use_collision = true
 transform = Transform3D(500, 0, 0, 0, 0.5, 0, 0, 0, 500, 0, -0.78000003, 0)
 material = SubResource("StandardMaterial3D_n2ri7")
 
+[node name="CSGBox3D6" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=1312896196]
+transform = Transform3D(500, 0, 0, 0, 0.5, 0, 0, 0, 500, 4.196167e-05, -0.78000003, -492.78644)
+material = SubResource("StandardMaterial3D_n2ri7")
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=1940013054]
 transform = Transform3D(-2.1855692e-05, 8.778767, -2.1855692e-05, 0, -3.8373216e-07, -499.99997, -499.99997, -3.8373216e-07, 9.553427e-13, 250, 167.02979, 1.5661929e-13)
 size = Vector3(1, 1, 0.67211914)
@@ -246,11 +211,29 @@ transform = Transform3D(1.0000002, 0, 0, 0, 1.1391993, 1.0913936e-11, 0, 3.46944
 operation = 2
 size = Vector3(0.83569336, 1, 0.089416504)
 
+[node name="CSGBox3D7" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=1556153124]
+transform = Transform3D(-2.1855696e-05, 8.778767, -2.1855692e-05, 0, -3.8373216e-07, -499.99997, -499.99997, -3.8373219e-07, 9.55343e-13, 250.00005, 167.02979, -499.48383)
+size = Vector3(1, 1, 0.67211914)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D7" unique_id=1048504507]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.1391993, 1.0913936e-11, 0, 3.469447e-18, 1.0000002, 0.0059814462, -6.1035156e-05, -0.22244269)
+operation = 2
+size = Vector3(0.83569336, 1, 0.089416504)
+
 [node name="CSGBox3D3" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=626085805]
 transform = Transform3D(-2.1855687e-05, 9.732756, -2.1855687e-05, 0, -4.254323e-07, -499.99994, -499.99994, -4.254323e-07, 9.553427e-13, -250, 167.03001, 0)
 size = Vector3(1, 1, 0.67211914)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D3" unique_id=1885682983]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.1391993, 1.0913936e-11, 0, 3.469447e-18, 1.0000002, 0.0059814462, -6.1035156e-05, -0.22244269)
+operation = 2
+size = Vector3(0.83569336, 1, 0.089416504)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=415465061]
+transform = Transform3D(-2.1855689e-05, 9.732756, -2.1855687e-05, 0, -4.2543232e-07, -499.99997, -499.99997, -4.2543235e-07, 9.55343e-13, -249.99995, 167.03001, -501.10583)
+size = Vector3(1, 1, 0.67211914)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D8" unique_id=958607321]
 transform = Transform3D(1.0000002, 0, 0, 0, 1.1391993, 1.0913936e-11, 0, 3.469447e-18, 1.0000002, 0.0059814462, -6.1035156e-05, -0.22244269)
 operation = 2
 size = Vector3(0.83569336, 1, 0.089416504)
@@ -265,7 +248,7 @@ operation = 2
 size = Vector3(0.83569336, 1, 0.089416504)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=1315680572]
-transform = Transform3D(500, 0, 0, 0, -2.3492647e-07, -499.99997, 0, 5.3744917, -2.1855687e-05, 0, 167.03001, -250)
+transform = Transform3D(500, 0, -2.1684043e-19, 0, -2.3492647e-07, -499.99997, 0, 5.3744917, -2.1855687e-05, 0, 167.03001, -250.00002)
 size = Vector3(1, 1, 0.67211914)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D5" unique_id=839776724]
@@ -274,20 +257,23 @@ operation = 2
 size = Vector3(0.83569336, 1, 0.089416504)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D5" unique_id=296273780]
-transform = Transform3D(0.07581636, 0, 0, 0, 1.1391991, 2.910383e-11, 0, 0, 1.0000005, -0.00013483524, -3.0517578e-05, 0.29004723)
+transform = Transform3D(0.07581636, 0, 4.2351647e-22, 1.1368684e-13, 1.1391989, 2.910383e-11, 0, 0, 1.0000005, -0.03302482, -3.0517578e-05, 0.29004723)
 operation = 2
 size = Vector3(0.83569336, 1, 0.089416504)
 
-[node name="Gate" type="CSGBox3D" parent="Base/Towers" unique_id=1911332975]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.272156, -249.332)
-size = Vector3(31.69751, 45.54431, 2.137207)
-material = SubResource("StandardMaterial3D_0qj8b")
+[node name="CSGBox3D9" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=1020688139]
+transform = Transform3D(500, 0, -2.1684043e-19, 0, -2.3492647e-07, -499.99997, 0, 5.3744917, -2.1855687e-05, 4.386902e-05, 167.03001, -740.79047)
+size = Vector3(1, 1, 0.67211914)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Base/Towers/Gate" unique_id=332238317]
-libraries/ = SubResource("AnimationLibrary_0qj8b")
+[node name="CSGBox3D7" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D9" unique_id=517561130]
+transform = Transform3D(1.0000002, 0, 0, 0, 1.1391993, 1.0913936e-11, 0, 3.469447e-18, 1.0000002, 0.0059814462, -6.1035156e-05, -0.22244269)
+operation = 2
+size = Vector3(0.83569336, 1, 0.089416504)
 
-[node name="Target" parent="Base/Towers" unique_id=20653629 instance=ExtResource("6_32xgo")]
-transform = Transform3D(-2.1855692e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855692e-07, -32.823933, 31.766947, -246.81781)
+[node name="CSGBox3D8" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D9" unique_id=385203185]
+transform = Transform3D(0.07581636, 0, 0, 0, 1.1391991, 2.910383e-11, 0, 0, 1.0000005, -0.00013483524, -3.0517578e-05, 0.29004723)
+operation = 2
+size = Vector3(0.83569336, 1, 0.089416504)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Base" unique_id=599098838]
 transform = Transform3D(249.99998, 0, -1.1368684e-12, 0, 249.99998, 0, 1.1368684e-12, 0, 249.99998, 0, 174.263, -245.028)
@@ -397,6 +383,12 @@ shape = SubResource("WorldBoundaryShape3D_8gbba")
 
 [node name="Player" parent="." unique_id=1939714363 instance=ExtResource("5_0qj8b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7618842, 0)
+
+[node name="Target" parent="." unique_id=20653629 instance=ExtResource("6_32xgo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.666971, 6.0522404, 48.84065)
+
+[node name="Gate" parent="." unique_id=1059004005 instance=ExtResource("7_n2ri7")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 22.272, 0)
 
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Exit" to="Player" method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Conitnue" to="Player" method="_on_conitnue_pressed"]

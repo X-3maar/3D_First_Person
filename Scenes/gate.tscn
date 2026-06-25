@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cqndcilr0pim1"]
+
+[ext_resource type="Script" uid="uid://c34idf23fbvdn" path="res://Scripts/gate.gd" id="1_1lkl7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t224d"]
+metallic = 1.0
+roughness = 0.25
+
+[sub_resource type="Animation" id="Animation_hn85u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1lkl7"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 2),
+"update": 1,
+"values": [0.0, -5.912428]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hn85u"]
+_data = {
+&"RESET": SubResource("Animation_hn85u"),
+&"open": SubResource("Animation_1lkl7")
+}
+
+[node name="Gate" type="CSGBox3D" unique_id=1059004005]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+use_collision = true
+size = Vector3(31.69751, 45.54431, 2.137207)
+material = SubResource("StandardMaterial3D_t224d")
+script = ExtResource("1_1lkl7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1647637220]
+libraries/ = SubResource("AnimationLibrary_hn85u")

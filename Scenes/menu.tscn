@@ -365,6 +365,37 @@ theme_override_fonts/font = ExtResource("2_wwsa2")
 theme_override_font_sizes/font_size = 16
 text = "Offline Mode"
 
+[node name="Button3" type="Button" parent="CanvasLayer" unique_id=1610810492]
+offset_left = 489.0
+offset_top = 578.0
+offset_right = 658.0
+offset_bottom = 617.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button3" unique_id=2000305728]
+position = Vector2(149, 19)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_wwsa2")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Button3" unique_id=555852113]
+position = Vector2(19, 19)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_wbdvm")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Button3" unique_id=450776393]
+position = Vector2(84, 19)
+scale = Vector2(9.792, 0.75)
+sprite_frames = SubResource("SpriteFrames_6swd7")
+
+[node name="Label" type="Label" parent="CanvasLayer/Button3" unique_id=949529864]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 133.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("2_wwsa2")
+theme_override_font_sizes/font_size = 16
+text = "See the Arena"
+
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1575585062]
 offset_left = 236.0
 offset_top = 64.0
@@ -432,68 +463,6 @@ rotation = -1.5707964
 scale = Vector2(36.136654, 1.0030091)
 sprite_frames = SubResource("SpriteFrames_1by5w")
 
-[node name="Host" type="Button" parent="CanvasLayer/ColorRect2" unique_id=1152274353]
-layout_mode = 0
-offset_left = 85.0
-offset_top = 33.0
-offset_right = 369.0
-offset_bottom = 85.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host" unique_id=483871093]
-position = Vector2(257, 26)
-sprite_frames = SubResource("SpriteFrames_wwsa2")
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host" unique_id=1607373821]
-position = Vector2(26, 26)
-sprite_frames = SubResource("SpriteFrames_wbdvm")
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Host" unique_id=1817052440]
-position = Vector2(140.99998, 26)
-scale = Vector2(20.666664, 1)
-sprite_frames = SubResource("SpriteFrames_6swd7")
-
-[node name="Label" type="Label" parent="CanvasLayer/ColorRect2/Host" unique_id=646358795]
-layout_mode = 0
-offset_left = 86.0
-offset_top = 7.0
-offset_right = 189.0
-offset_bottom = 44.0
-theme_override_fonts/font = ExtResource("2_wwsa2")
-theme_override_font_sizes/font_size = 32
-text = "Host"
-horizontal_alignment = 1
-
-[node name="Join" type="Button" parent="CanvasLayer/ColorRect2" unique_id=622501195]
-layout_mode = 0
-offset_left = 85.0
-offset_top = 185.0
-offset_right = 369.0
-offset_bottom = 237.0
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Join" unique_id=1847258919]
-position = Vector2(257, 26)
-sprite_frames = SubResource("SpriteFrames_wwsa2")
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Join" unique_id=106004919]
-position = Vector2(26, 26)
-sprite_frames = SubResource("SpriteFrames_wbdvm")
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect2/Join" unique_id=222508701]
-position = Vector2(140.99998, 26)
-scale = Vector2(20.666664, 1)
-sprite_frames = SubResource("SpriteFrames_6swd7")
-
-[node name="Label" type="Label" parent="CanvasLayer/ColorRect2/Join" unique_id=2082910005]
-layout_mode = 0
-offset_left = 86.0
-offset_top = 7.0
-offset_right = 189.0
-offset_bottom = 44.0
-theme_override_fonts/font = ExtResource("2_wwsa2")
-theme_override_font_sizes/font_size = 32
-text = "Join"
-horizontal_alignment = 1
-
 [node name="Host3" type="Button" parent="CanvasLayer/ColorRect2" unique_id=2121484368]
 layout_mode = 0
 offset_left = 85.0
@@ -525,22 +494,15 @@ theme_override_font_sizes/font_size = 32
 text = "Back to Menu"
 horizontal_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="CanvasLayer/ColorRect2" unique_id=272680968]
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect2" unique_id=1254362817]
 layout_mode = 0
-offset_left = 172.0
-offset_top = 112.0
-offset_right = 369.0
-offset_bottom = 156.0
-
-[node name="Label" type="Label" parent="CanvasLayer/ColorRect2/LineEdit" unique_id=1254362817]
-layout_mode = 0
-offset_left = -94.0
-offset_top = 2.0
-offset_right = 9.0
-offset_bottom = 39.0
+offset_left = 134.0
+offset_top = 121.0
+offset_right = 326.0
+offset_bottom = 158.0
 theme_override_fonts/font = ExtResource("2_wwsa2")
 theme_override_font_sizes/font_size = 32
-text = "Port: "
+text = "Coming Soon"
 horizontal_alignment = 1
 
 [node name="Sea" type="Node3D" parent="." unique_id=1725388447]
@@ -570,7 +532,6 @@ transform = Transform3D(-0.62765694, 0.75677097, 0.18260688, 0.71549505, 0.65320
 
 [connection signal="pressed" from="CanvasLayer/Online" to="CanvasLayer" method="_on_online_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="CanvasLayer" method="_on_button_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect2/Host" to="CanvasLayer" method="_on_host_pressed"]
-[connection signal="pressed" from="CanvasLayer/ColorRect2/Join" to="CanvasLayer" method="_on_join_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button3" to="CanvasLayer" method="_on_button_x_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Host3" to="CanvasLayer" method="_on_host_3_pressed"]
 [connection signal="body_entered" from="Sea/Killzone" to="Sea/Killzone" method="_on_body_entered"]
