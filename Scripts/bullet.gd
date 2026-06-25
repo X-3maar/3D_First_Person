@@ -13,7 +13,3 @@ func _physics_process(delta: float) -> void:
 	dis += delta * speed
 	if dis > max:
 		queue_free()
-
-
-func _on_body_entered(body: Node3D) -> void:
-	body.queue_free()

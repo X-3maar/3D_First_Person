@@ -6,9 +6,6 @@ func _process(delta: float) -> void:
 	if Global.gate:
 		animation_player.play("open")
 		await animation_player.animation_finished
-		timer += delta
-		if timer > 5:
-			Global.gate = false
-			animation_player.play("close")
-			timer = 0 
+		animation_player.play("close")
+		Global.gate = false
 			

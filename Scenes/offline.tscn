@@ -34,6 +34,23 @@ material = SubResource("StandardMaterial3D_kpwhx")
 text = "Welcome to 
 Pistols Arena 3D"
 
+[sub_resource type="TextMesh" id="TextMesh_0qj8b"]
+text = "Shoot
+|
+v"
+line_spacing = -10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vuhub"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_kpwhx"]
+text = "|
+v"
+line_spacing = -10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qj8b"]
+albedo_color = Color(0, 0, 0, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bp64"]
 atlas = ExtResource("1_m86ib")
 region = Rect2(0, 0, 16, 48)
@@ -176,6 +193,112 @@ animations = [{
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8gbba"]
 
+[sub_resource type="Animation" id="Animation_n2ri7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.8374233, 36.95393)]
+}
+
+[sub_resource type="Animation" id="Animation_0qj8b"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(5.7, 2.837, 36.954), Vector3(0, 2.837, 36.954)]
+}
+
+[sub_resource type="Animation" id="Animation_kpwhx"]
+resource_name = "open"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.8374233, 36.95393), Vector3(5.7, 2.837, 36.954)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vuhub"]
+_data = {
+&"RESET": SubResource("Animation_n2ri7"),
+&"close": SubResource("Animation_0qj8b"),
+&"open": SubResource("Animation_kpwhx")
+}
+
+[sub_resource type="Animation" id="Animation_vuhub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.9480176, 110.585464)]
+}
+
+[sub_resource type="Animation" id="Animation_whhej"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(4.534387, 2.9480176, 110.585464), Vector3(0, 2.948, 110.585)]
+}
+
+[sub_resource type="Animation" id="Animation_st6eo"]
+resource_name = "open"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.9480176, 110.585464), Vector3(4.534387, 2.9480176, 110.585464)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vm80"]
+_data = {
+&"RESET": SubResource("Animation_vuhub"),
+&"close": SubResource("Animation_whhej"),
+&"open": SubResource("Animation_st6eo")
+}
+
 [node name="main" type="Node3D" unique_id=1663971755]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1804975715]
@@ -187,12 +310,14 @@ shadow_enabled = true
 sky_mode = 1
 
 [node name="Base" type="Node3D" parent="." unique_id=1880712930]
-transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, -3.2823944, 0, -0.56277657)
+transform = Transform3D(-0.15, 0, -2.2649372e-08, 0, 0.15, 0, 2.2649372e-08, 0, -0.15, 0, 0, -0.563)
 
 [node name="Towers" type="Node3D" parent="Base" unique_id=515382577]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Base/Towers" unique_id=1210766688]
 use_collision = true
+collision_layer = 7
+collision_mask = 7
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=1742618251]
 transform = Transform3D(500, 0, 0, 0, 0.5, 0, 0, 0, 500, 0, -0.78000003, 0)
@@ -257,9 +382,9 @@ operation = 2
 size = Vector3(0.83569336, 1, 0.089416504)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D5" unique_id=296273780]
-transform = Transform3D(0.07581636, 0, 4.2351647e-22, 1.1368684e-13, 1.1391989, 2.910383e-11, 0, 0, 1.0000005, -0.03302482, -3.0517578e-05, 0.29004723)
+transform = Transform3D(0.07581636, 0, 4.2351647e-22, 1.8189894e-12, 1.1391989, 2.910383e-11, -7.940934e-23, 0, 1.0000005, 0, 0, 0.295)
 operation = 2
-size = Vector3(0.83569336, 1, 0.089416504)
+size = Vector3(0.83569336, 1, 0.07937622)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=1020688139]
 transform = Transform3D(500, 0, -2.1684043e-19, 0, -2.3492647e-07, -499.99997, 0, 5.3744917, -2.1855687e-05, 4.386902e-05, 167.03001, -740.79047)
@@ -270,14 +395,24 @@ transform = Transform3D(1.0000002, 0, 0, 0, 1.1391993, 1.0913936e-11, 0, 3.46944
 operation = 2
 size = Vector3(0.83569336, 1, 0.089416504)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D9" unique_id=385203185]
-transform = Transform3D(0.07581636, 0, 0, 0, 1.1391991, 2.910383e-11, 0, 0, 1.0000005, -0.00013483524, -3.0517578e-05, 0.29004723)
+[node name="CSGBox3D8" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D9" unique_id=2058392048]
+transform = Transform3D(0.07581636, 0, 4.2351647e-22, 1.8189894e-12, 1.1391989, 2.910383e-11, -7.940934e-23, 0, 1.0000005, 0, 0, 0.295)
 operation = 2
-size = Vector3(0.83569336, 1, 0.089416504)
+size = Vector3(0.83569336, 1, 0.07937622)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Base" unique_id=599098838]
 transform = Transform3D(249.99998, 0, -1.1368684e-12, 0, 249.99998, 0, 1.1368684e-12, 0, 249.99998, 0, 174.263, -245.028)
 mesh = SubResource("TextMesh_n2ri7")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Base" unique_id=126329172]
+transform = Transform3D(19.999994, 0, 4.5474735e-13, 0, 19.999994, 0, -4.5474735e-13, 0, 19.999994, -22.447542, 34.088512, -246.9756)
+mesh = SubResource("TextMesh_0qj8b")
+material = SubResource("StandardMaterial3D_vuhub")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Base" unique_id=210922607]
+transform = Transform3D(-50, 4.371139e-06, -1.509958e-05, -4.371139e-06, -50, -6.600236e-13, -1.509958e-05, 6.600237e-13, 50, 0.0001113192, 54.446735, -737.2339)
+mesh = SubResource("TextMesh_kpwhx")
+material = SubResource("StandardMaterial3D_0qj8b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=659615867]
 
@@ -385,10 +520,23 @@ shape = SubResource("WorldBoundaryShape3D_8gbba")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7618842, 0)
 
 [node name="Target" parent="." unique_id=20653629 instance=ExtResource("6_32xgo")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.666971, 6.0522404, 48.84065)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.3082504, 3.8062477, 36.45063)
+
+[node name="Target2" parent="." unique_id=1875042219 instance=ExtResource("6_32xgo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07619393, 28.555992, 110.04615)
 
 [node name="Gate" parent="." unique_id=1059004005 instance=ExtResource("7_n2ri7")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 22.272, 0)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 2.8374233, 36.95393)
+size = Vector3(46.758057, 41.92462, 2.137207)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Gate" unique_id=2048761649]
+libraries/ = SubResource("AnimationLibrary_vuhub")
+
+[node name="Gate2" parent="." unique_id=231418085 instance=ExtResource("7_n2ri7")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 2.9480176, 110.585464)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Gate2" unique_id=685296861]
+libraries/ = SubResource("AnimationLibrary_1vm80")
 
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Exit" to="Player" method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Conitnue" to="Player" method="_on_conitnue_pressed"]
