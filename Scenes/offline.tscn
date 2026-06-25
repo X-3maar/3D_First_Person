@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dmeplcttslfwr" path="res://Scenes/target.tscn" id="6_32xgo"]
 [ext_resource type="PackedScene" uid="uid://cqndcilr0pim1" path="res://Scenes/gate.tscn" id="7_n2ri7"]
 [ext_resource type="PackedScene" uid="uid://76hrxoa7b2lj" path="res://Scenes/menu_target.tscn" id="8_0qj8b"]
+[ext_resource type="PackedScene" uid="uid://b1i51x85am41i" path="res://Scenes/countarget.tscn" id="9_kpwhx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m86ib"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -37,30 +38,38 @@ text = "Welcome to
 "
 
 [sub_resource type="TextMesh" id="TextMesh_whhej"]
-text = "Level - 1
+text = "Level - I
 Shoot the Target"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vm80"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_5rd5l"]
-text = "Level - 2
+text = "Level - II
 Parkour"
 
 [sub_resource type="TextMesh" id="TextMesh_jhiqd"]
-text = "Level - 3
+text = "Level - III
 Moving Target"
 
 [sub_resource type="TextMesh" id="TextMesh_yovsj"]
-text = "Level - 4 
+text = "Level - IV
 Hidden Target?"
 
 [sub_resource type="TextMesh" id="TextMesh_yw5fl"]
-text = "Level - 6
+text = "Level - VI
 Sniper"
 
+[sub_resource type="TextMesh" id="TextMesh_g78fk"]
+text = "Level - VII
+Moving Target 2"
+
+[sub_resource type="TextMesh" id="TextMesh_xh6k5"]
+text = "Level - VIII
+The Maze 2"
+
 [sub_resource type="TextMesh" id="TextMesh_rxu7k"]
-text = "Level - 5
+text = "Level - V
 The Maze"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whhej"]
@@ -998,6 +1007,196 @@ _data = {
 &"open": SubResource("Animation_4i1pk")
 }
 
+[sub_resource type="Animation" id="Animation_y45kb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.2758045, 14.243635, 506.5526)]
+}
+
+[sub_resource type="Animation" id="Animation_yue2a"]
+resource_name = "moving"
+length = 1.4333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(8.2758045, 14.243635, 506.5526), Vector3(2.0623612, 14.243635, 506.5526)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2uf5"]
+_data = {
+&"RESET": SubResource("Animation_y45kb"),
+&"moving": SubResource("Animation_yue2a")
+}
+
+[sub_resource type="Animation" id="Animation_e6gwk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.7262077, 14.243635, 506.5526)]
+}
+
+[sub_resource type="Animation" id="Animation_uc13h"]
+resource_name = "moving"
+length = 1.4333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.69),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-7.7262077, 14.243635, 506.5526), Vector3(-1.0888062, 14.243635, 506.5526)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vk17u"]
+_data = {
+&"RESET": SubResource("Animation_e6gwk"),
+&"moving": SubResource("Animation_uc13h")
+}
+
+[sub_resource type="Animation" id="Animation_bs5t1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.2758045, 8.187543, 506.5526)]
+}
+
+[sub_resource type="Animation" id="Animation_uvbym"]
+resource_name = "moving"
+length = 1.4333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(8.2758045, 8.187543, 506.5526), Vector3(1.8268638, 8.187543, 506.5526)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mcka8"]
+_data = {
+&"RESET": SubResource("Animation_bs5t1"),
+&"moving": SubResource("Animation_uvbym")
+}
+
+[sub_resource type="Animation" id="Animation_8n2al"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.9174633, 8.187543, 506.5526)]
+}
+
+[sub_resource type="Animation" id="Animation_snrx8"]
+resource_name = "moving"
+length = 1.4333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-7.9174633, 8.187543, 506.5526), Vector3(-1.1280947, 8.187543, 506.5526)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4bahe"]
+_data = {
+&"RESET": SubResource("Animation_8n2al"),
+&"moving": SubResource("Animation_snrx8")
+}
+
+[sub_resource type="Animation" id="Animation_qrrau"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-8.075357, 2.1535354, 506.5526)]
+}
+
+[sub_resource type="Animation" id="Animation_ggscg"]
+resource_name = "moving"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-8.075357, 2.1535354, 506.5526), Vector3(8.319153, 2.1535354, 506.5526)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pl8fc"]
+_data = {
+&"RESET": SubResource("Animation_qrrau"),
+&"moving": SubResource("Animation_ggscg")
+}
+
 [node name="main" type="Node3D" unique_id=1663971755]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1804975715]
@@ -1483,6 +1682,16 @@ transform = Transform3D(149.99995, 0, 1.8189894e-12, 0, 149.99995, 0, -1.8189894
 mesh = SubResource("TextMesh_yw5fl")
 material = SubResource("StandardMaterial3D_1vm80")
 
+[node name="CSGMesh3D13" type="CSGMesh3D" parent="Base" unique_id=1606263048]
+transform = Transform3D(149.99995, 0, 1.8189894e-12, 0, 149.99995, 0, -1.8189894e-12, 0, 149.99995, 0.16655517, 149.66777, -3681.1587)
+mesh = SubResource("TextMesh_g78fk")
+material = SubResource("StandardMaterial3D_1vm80")
+
+[node name="CSGMesh3D14" type="CSGMesh3D" parent="Base" unique_id=1688570387]
+transform = Transform3D(149.99995, 0, 1.8189894e-12, 0, 149.99995, 0, -1.8189894e-12, 0, 149.99995, 2.2414198, 149.66777, -4165.2227)
+mesh = SubResource("TextMesh_xh6k5")
+material = SubResource("StandardMaterial3D_1vm80")
+
 [node name="CSGMesh3D11" type="CSGMesh3D" parent="Base" unique_id=1260289169]
 transform = Transform3D(100, 0, 9.094947e-13, 0, 100, 0, -9.094947e-13, 0, 100, 0.00031012011, 24.71179, -2298.861)
 mesh = SubResource("TextMesh_rxu7k")
@@ -1599,6 +1808,36 @@ size = Vector3(1.4029312, 0.033203125, 0.5032959)
 transform = Transform3D(100, -3.2584132e-05, 1.5099579e-05, 1.509958e-05, -4.3711393e-06, -100, 3.258414e-05, 100, -4.371134e-06, 21.422392, 22.542702, -2621.9124)
 use_collision = true
 size = Vector3(1.4029312, 0.033203125, 0.5032959)
+
+[node name="CSGBox3D36" type="CSGBox3D" parent="Base/Group" unique_id=2119080054]
+transform = Transform3D(100, -2.383922e-06, 1.5099581e-05, 1.5099578e-05, -4.371139e-06, -100, 2.383922e-06, 100, -4.371138e-06, -1.5969576, 4.247713, -3381.0269)
+use_collision = true
+size = Vector3(1.4029312, 0.033203125, 0.13739014)
+
+[node name="CSGBox3D37" type="CSGBox3D" parent="Base/Group" unique_id=1141256911]
+transform = Transform3D(100, -2.383922e-06, 1.5099581e-05, 1.5099578e-05, -4.371139e-06, -100, 2.383922e-06, 100, -4.371138e-06, 63.950638, 53.25819, -3381.0266)
+use_collision = true
+size = Vector3(0.09196854, 0.033203125, 1.1175995)
+
+[node name="CSGBox3D41" type="CSGBox3D" parent="Base/Group" unique_id=759008763]
+transform = Transform3D(100, -2.383922e-06, 1.5099581e-05, 1.5099578e-05, -4.371139e-06, -100, 2.383922e-06, 100, -4.371138e-06, -2.5459278, 75.53411, -3381.0266)
+use_collision = true
+size = Vector3(0.09196854, 0.033203125, 0.672081)
+
+[node name="CSGBox3D38" type="CSGBox3D" parent="Base/Group" unique_id=1239902866]
+transform = Transform3D(100, -2.383922e-06, 1.5099581e-05, 1.5099578e-05, -4.371139e-06, -100, 2.383922e-06, 100, -4.371138e-06, -66.47199, 53.25819, -3381.027)
+use_collision = true
+size = Vector3(0.09196854, 0.033203125, 1.1175995)
+
+[node name="CSGBox3D39" type="CSGBox3D" parent="Base/Group" unique_id=1049413843]
+transform = Transform3D(100, -2.383922e-06, 1.5099581e-05, 1.5099578e-05, -4.371139e-06, -100, 2.383922e-06, 100, -4.371138e-06, -2.1151526, 85.75021, -3381.0269)
+use_collision = true
+size = Vector3(1.3791142, 0.033203125, 0.1198349)
+
+[node name="CSGBox3D40" type="CSGBox3D" parent="Base/Group" unique_id=1744700581]
+transform = Transform3D(100, -2.383922e-06, 1.5099581e-05, 1.5099578e-05, -4.371139e-06, -100, 2.383922e-06, 100, -4.371138e-06, -2.1151526, 45.216507, -3381.0269)
+use_collision = true
+size = Vector3(1.3791142, 0.033203125, 0.1198349)
 
 [node name="CSGBox3D35" type="CSGBox3D" parent="Base/Group" unique_id=1213553870]
 transform = Transform3D(100, -3.2584132e-05, 1.5099579e-05, 1.509958e-05, -4.3711393e-06, -100, 3.258414e-05, 100, -4.371134e-06, 0.7947415, 22.542675, -2812.1008)
@@ -1803,7 +2042,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5291595, -220.5086, 0)
 shape = SubResource("WorldBoundaryShape3D_8gbba")
 
 [node name="Player" parent="." unique_id=1939714363 instance=ExtResource("5_0qj8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.978176, 2.7618842, 411.24872)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.762, 488.98245)
 
 [node name="Target" parent="." unique_id=20653629 instance=ExtResource("6_32xgo")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.3082504, 3.8062477, 36.45063)
@@ -1836,9 +2075,6 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 12.1
 
 [node name="Target8" parent="." unique_id=179375216 instance=ExtResource("6_32xgo")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.700632, 2.426713, 478.06577)
-
-[node name="Target9" parent="." unique_id=1350698917 instance=ExtResource("6_32xgo")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07619393, 28.555992, 551.9145)
 
 [node name="Target10" parent="." unique_id=1170970009 instance=ExtResource("6_32xgo")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.07619393, 28.555992, 624.6567)
@@ -1924,6 +2160,44 @@ libraries/ = SubResource("AnimationLibrary_jjnd6")
 
 [node name="Target4" parent="." unique_id=1035882530 instance=ExtResource("8_0qj8b")]
 transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, 0, 5.243628, 843.5317)
+
+[node name="Target14" parent="." unique_id=1308863193 instance=ExtResource("9_kpwhx")]
+transform = Transform3D(-5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -5.9604645e-08, 8.2758045, 14.243635, 506.5526)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Target14" unique_id=836794364]
+libraries/ = SubResource("AnimationLibrary_q2uf5")
+autoplay = &"moving"
+
+[node name="Target17" parent="." unique_id=1400136575 instance=ExtResource("9_kpwhx")]
+transform = Transform3D(-5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -5.9604645e-08, -7.7262077, 14.243635, 506.5526)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Target17" unique_id=1392091177]
+libraries/ = SubResource("AnimationLibrary_vk17u")
+autoplay = &"moving"
+
+[node name="Target15" parent="." unique_id=1700041823 instance=ExtResource("9_kpwhx")]
+transform = Transform3D(-5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -5.9604645e-08, 8.2758045, 8.187543, 506.5526)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Target15" unique_id=2116660589]
+libraries/ = SubResource("AnimationLibrary_mcka8")
+autoplay = &"moving"
+
+[node name="Target18" parent="." unique_id=1475642220 instance=ExtResource("9_kpwhx")]
+transform = Transform3D(-5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -5.9604645e-08, -7.9174633, 8.187543, 506.5526)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Target18" unique_id=357512137]
+libraries/ = SubResource("AnimationLibrary_4bahe")
+autoplay = &"moving"
+
+[node name="Target16" parent="." unique_id=1484578064 instance=ExtResource("9_kpwhx")]
+transform = Transform3D(-5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -5.9604645e-08, -8.075357, 2.1535354, 506.5526)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Target16" unique_id=994214933]
+libraries/ = SubResource("AnimationLibrary_pl8fc")
+autoplay = &"moving"
+
+[node name="Target19" parent="." unique_id=478272675 instance=ExtResource("9_kpwhx")]
+transform = Transform3D(-5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -5.9604645e-08, -8.075357, -10.043114, 506.5526)
 
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Exit" to="Player" method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Conitnue" to="Player" method="_on_conitnue_pressed"]
