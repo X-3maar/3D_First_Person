@@ -10,7 +10,7 @@ const BULLET = preload("uid://dl5uh1glkohgb")
 @onready var cross_hair: AnimatedSprite2D = $"../CanvasLayer/CrossHair"
 var aiming = false
 var SPEED = 5.0
-const JUMP_VELOCITY = 7
+const JUMP_VELOCITY = 10
 var moving
 var captured = true
 var running = true
