@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d01ci5etxifhp" path="res://Assets/tilemap.png" id="3_n2ri7"]
 [ext_resource type="PackedScene" uid="uid://cgfg7xpuisx62" path="res://Scenes/player.tscn" id="5_0qj8b"]
 [ext_resource type="Script" uid="uid://bbt5i5bjt6kmx" path="res://Scripts/Sea.gd" id="5_vuhub"]
+[ext_resource type="PackedScene" uid="uid://dmeplcttslfwr" path="res://Scenes/target.tscn" id="6_32xgo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m86ib"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -192,7 +193,7 @@ operation = 2
 size = Vector3(0.83569336, 1, 0.089416504)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=626085805]
-transform = Transform3D(-2.1855694e-05, 0.5, -2.1855694e-05, 0, -2.1855694e-08, -500, -500, -2.1855694e-08, 9.553427e-13, -250, 167.03, 0)
+transform = Transform3D(-2.1855689e-05, 4.877519, -2.1855689e-05, 0, -2.1320315e-07, -499.99997, -499.99997, -2.1320315e-07, 9.553427e-13, -250, 167.03001, 0)
 size = Vector3(1, 1, 0.67211914)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D3" unique_id=1885682983]
@@ -201,9 +202,9 @@ operation = 2
 size = Vector3(0.83569336, 1, 0.089416504)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D/CSGBox3D3" unique_id=1772106384]
-transform = Transform3D(1.0000005, 1.0408341e-17, -2.1175824e-22, 1.0913936e-11, 1.1391993, 2.910383e-11, 4.0022307e-20, 1.0408341e-17, 1.0000005, 0.0059814467, -3.0517578e-05, 0.29715207)
+transform = Transform3D(1.0000004, -4.517897e-11, -3.959879e-20, 1.0913936e-11, 4.1395373, 1.0913936e-11, 4.1081098e-20, -4.440892e-16, 1.0000004, -1.209699e-12, 0.11071777, 0.297)
 operation = 2
-size = Vector3(0.051757813, 1, 0.07411194)
+size = Vector3(0.051757813, 0.80566406, 0.07411194)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Base/Towers/CSGCombiner3D" unique_id=2057105761]
 transform = Transform3D(500, 0, 0, 0, -2.1855694e-08, -500, 0, 0.5, -2.1855694e-05, 0, 167.03, 250)
@@ -324,8 +325,11 @@ script = ExtResource("5_vuhub")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5291595, -220.5086, 0)
 shape = SubResource("WorldBoundaryShape3D_8gbba")
 
+[node name="Target" parent="." unique_id=20653629 instance=ExtResource("6_32xgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.429394, 4.8800025, 5.311264)
+
 [node name="Player" parent="." unique_id=1939714363 instance=ExtResource("5_0qj8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9084121, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6243882, 0)
 
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Exit" to="Player" method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Conitnue" to="Player" method="_on_conitnue_pressed"]

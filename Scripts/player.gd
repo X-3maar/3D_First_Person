@@ -10,7 +10,7 @@ const BULLET = preload("uid://dl5uh1glkohgb")
 @onready var cross_hair: AnimatedSprite2D = $"../CanvasLayer/CrossHair"
 var aiming = false
 var SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 7
 var moving
 var captured = true
 var running = true
@@ -79,7 +79,7 @@ func _physics_process(delta: float) -> void:
 			cross_hair.show()
 		
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta *2
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
