@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://civdpek2nl6s"]
 
-[ext_resource type="PackedScene" uid="uid://cgfg7xpuisx62" path="res://Scenes/player.tscn" id="2_bo1nx"]
-[ext_resource type="Texture2D" uid="uid://bheonqhxhs3q4" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Transparent border/panel-transparent-border-015.png" id="3_8gbba"]
-[ext_resource type="Texture2D" uid="uid://sqcjpiv1yljf" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Border/panel-border-014.png" id="3_kry3j"]
-[ext_resource type="Script" uid="uid://bbt5i5bjt6kmx" path="res://Scripts/Sea.gd" id="4_jjvhh"]
-[ext_resource type="Texture2D" uid="uid://d01ci5etxifhp" path="res://Assets/tilemap.png" id="5_21xkr"]
+[ext_resource type="Texture2D" uid="uid://sqcjpiv1yljf" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Border/panel-border-014.png" id="1_vyibv"]
+[ext_resource type="Texture2D" uid="uid://bheonqhxhs3q4" path="res://Assets/kenney_fantasy-ui-borders(1)/PNG/Default/Transparent border/panel-transparent-border-015.png" id="2_6hovh"]
+[ext_resource type="Texture2D" uid="uid://d01ci5etxifhp" path="res://Assets/tilemap.png" id="3_tbi50"]
+[ext_resource type="Script" uid="uid://bbt5i5bjt6kmx" path="res://Scripts/Sea.gd" id="4_qpuil"]
+[ext_resource type="PackedScene" uid="uid://cgfg7xpuisx62" path="res://Scenes/player.tscn" id="5_r85c1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -38,22 +38,40 @@ albedo_color = Color(0, 1, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hptm8"]
 albedo_color = Color(5.700253, 4.238891, 12.230712, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hujc"]
+metallic = 1.0
+roughness = 0.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iyac"]
 albedo_color = Color(4.954765, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jkdf5"]
+metallic = 1.0
+roughness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdnlq"]
 albedo_color = Color(0, 0, 5.2480645, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyibv"]
+metallic = 1.0
+roughness = 0.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wsu2k"]
 albedo_color = Color(0, 4.954765, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hovh"]
+metallic = 1.0
+roughness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1ilt"]
 albedo_color = Color(5.2480645, 5.2480645, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbi50"]
+metallic = 1.0
+roughness = 0.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bp64"]
-atlas = ExtResource("3_kry3j")
+atlas = ExtResource("1_vyibv")
 region = Rect2(0, 0, 16, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_344ge"]
@@ -68,7 +86,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynf5e"]
-atlas = ExtResource("3_kry3j")
+atlas = ExtResource("1_vyibv")
 region = Rect2(16, 0, 16, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hptm8"]
@@ -83,7 +101,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1ilt"]
-atlas = ExtResource("3_kry3j")
+atlas = ExtResource("1_vyibv")
 region = Rect2(32, 0, 16, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6iyac"]
@@ -98,11 +116,11 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jjvhh"]
-atlas = ExtResource("3_8gbba")
+atlas = ExtResource("2_6hovh")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdnlq"]
-atlas = ExtResource("3_kry3j")
+atlas = ExtResource("1_vyibv")
 region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jkdf5"]
@@ -120,7 +138,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsu2k"]
-atlas = ExtResource("5_21xkr")
+atlas = ExtResource("3_tbi50")
 region = Rect2(255, 17, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k12tt"]
@@ -149,7 +167,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b3802"]
-atlas = ExtResource("5_21xkr")
+atlas = ExtResource("3_tbi50")
 region = Rect2(204, 68, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fevyy"]
@@ -178,7 +196,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kry3j"]
-atlas = ExtResource("5_21xkr")
+atlas = ExtResource("3_tbi50")
 region = Rect2(289, 34, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_21xkr"]
@@ -256,6 +274,7 @@ operation = 2
 use_collision = true
 height = 108.22565
 sides = 20
+material = SubResource("StandardMaterial3D_4hujc")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1989048799]
 transform = Transform3D(100, 0, 0, 0, 0.10000001, 0, 0, 0, 100, 0, -2.7052593, 250)
@@ -285,6 +304,7 @@ operation = 2
 use_collision = true
 height = 108.22565
 sides = 20
+material = SubResource("StandardMaterial3D_vyibv")
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=830042715]
 transform = Transform3D(100, 0, 0, 0, 0.10000001, 0, 0, 0, 100, 250, -2.664013, 0)
@@ -299,6 +319,7 @@ operation = 2
 use_collision = true
 height = 108.22565
 sides = 20
+material = SubResource("StandardMaterial3D_6hovh")
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Base/Towers/CSGCombiner3D" unique_id=1044278640]
 transform = Transform3D(100, 0, 0, 0, 0.10000001, 0, 0, 0, 100, -250, -2.6594567, 0)
@@ -313,6 +334,7 @@ operation = 2
 use_collision = true
 height = 108.22565
 sides = 20
+material = SubResource("StandardMaterial3D_tbi50")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=659615867]
 
@@ -413,13 +435,13 @@ material = SubResource("StandardMaterial3D_kry3j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 92.98244, -1.6854477)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("4_jjvhh")
+script = ExtResource("4_qpuil")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sea/Killzone" unique_id=1666126956]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5291595, -220.5086, 0)
 shape = SubResource("WorldBoundaryShape3D_8gbba")
 
-[node name="Player" parent="." unique_id=1939714363 instance=ExtResource("2_bo1nx")]
+[node name="Player" parent="." unique_id=1939714363 instance=ExtResource("5_r85c1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9084121, 0)
 
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Exit" to="Player" method="_on_exit_pressed"]

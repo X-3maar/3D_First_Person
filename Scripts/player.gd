@@ -109,6 +109,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_exit_pressed() -> void:
+	Engine.time_scale = 1.0
 	get_tree().change_scene_to_file("res://Scenes/menu1.tscn")
 
 func _on_conitnue_pressed() -> void:

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bit4exnan4w56" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://dudq51g23l3rh" path="res://Scenes/Pistol.glb" id="2_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://ci5acyjstf4uw" path="res://Assets/Models/GLB format/animal-chick.glb" id="3_6t5aa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvnsp"]
 height = 3.2268066
@@ -9,8 +10,6 @@ height = 3.2268066
 [sub_resource type="SphereShape3D" id="SphereShape3D_cvnsp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v0iea"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_6t5aa"]
 
 [sub_resource type="Animation" id="Animation_tx1dd"]
 length = 0.001
@@ -219,7 +218,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20349121, 0)
 shape = SubResource("CapsuleShape3D_cvnsp")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1975330374]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9428899, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6705315, 0)
 shape = SubResource("SphereShape3D_cvnsp")
 
 [node name="Neck" type="Node3D" parent="." unique_id=1437325771]
@@ -237,21 +236,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05815053, -0.5902763)
 [node name="Appearance" type="Node3D" parent="Neck" unique_id=1637411117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7777722, 0)
 
-[node name="Body" type="MeshInstance3D" parent="Neck/Appearance" unique_id=1329041800]
-transform = Transform3D(1, 0, 0, 0, 1.6500331, 0, 0, 0, 1, 0, -0.22019863, 0)
+[node name="Egg" type="MeshInstance3D" parent="Neck/Appearance" unique_id=1329041800]
+transform = Transform3D(1.5, 0, 0, 0, 1.65, 0, 0, 0, 1.5, 0, -0.22019863, 0)
 mesh = SubResource("CapsuleMesh_v0iea")
 
-[node name="Haead" type="MeshInstance3D" parent="Neck/Appearance" unique_id=609365620]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9439862, 0)
-mesh = SubResource("SphereMesh_6t5aa")
-
-[node name="Eye1" type="MeshInstance3D" parent="Neck/Appearance" unique_id=1972154016]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.23979136, 2.0123582, -0.44181406)
-mesh = SubResource("SphereMesh_6t5aa")
-
-[node name="Eye2" type="MeshInstance3D" parent="Neck/Appearance" unique_id=914405810]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.23160347, 2.0123582, -0.44181406)
-mesh = SubResource("SphereMesh_6t5aa")
+[node name="Head" parent="Neck/Appearance" unique_id=210148903 instance=ExtResource("3_6t5aa")]
+transform = Transform3D(-0.59999996, 0, -5.2453665e-08, 0, 0.59999996, 0, 5.2453665e-08, 0, -0.59999996, 0, 1.1846688, 0)
 
 [node name="Pistol" type="AnimationPlayer" parent="." unique_id=2018544747]
 libraries/ = SubResource("AnimationLibrary_x3wgy")
