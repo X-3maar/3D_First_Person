@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://cm81pnhd3nnvr"]
+
+[ext_resource type="Script" uid="uid://b0uj7cyjx5tyd" path="res://Scripts/final_boss.gd" id="1_okwr3"]
+[ext_resource type="PackedScene" uid="uid://dmeplcttslfwr" path="res://Scenes/target.tscn" id="2_blxqn"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6vmjv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjgjy"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dprs8"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_670oq"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k77fu"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8i2ud"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_5uamw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxp2g"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvg44"]
+albedo_color = Color(1, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfcs1"]
+albedo_color = Color(1, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l5jvj"]
+radius = 2.101039
+
+[node name="FinaBoss" type="CharacterBody3D" unique_id=1739636275]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_okwr3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1852881427]
+mesh = SubResource("CapsuleMesh_6vmjv")
+surface_material_override/0 = SubResource("StandardMaterial3D_gjgjy")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1187494623]
+transform = Transform3D(0.44864267, 0, 0, 0, 1.0019009, 0, 0, 0, 0.5639906, 0.28301454, -1.4135722, 0.030510902)
+mesh = SubResource("CapsuleMesh_6vmjv")
+surface_material_override/0 = SubResource("StandardMaterial3D_dprs8")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=798243671]
+transform = Transform3D(0.44864267, 0, 0, 0, 1.0019009, 0, 0, 0, 0.5639906, -0.299, -1.41, 0.031)
+mesh = SubResource("CapsuleMesh_6vmjv")
+surface_material_override/0 = SubResource("StandardMaterial3D_670oq")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=310876299]
+transform = Transform3D(0.3913127, -0.20043974, 0, 0.08291199, 0.9459984, 0, 0, 0, 0.457, 0.73789454, -0.071092784, 0)
+mesh = SubResource("CapsuleMesh_6vmjv")
+surface_material_override/0 = SubResource("StandardMaterial3D_k77fu")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1997566318]
+transform = Transform3D(-0.39125904, -0.20105053, 0, 0.08316465, -0.9458688, 0, 0, 0, 0.457, -0.75062376, -0.071092784, 0)
+mesh = SubResource("CapsuleMesh_6vmjv")
+surface_material_override/0 = SubResource("StandardMaterial3D_8i2ud")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=325369756]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1.1967312, 0)
+mesh = SubResource("SphereMesh_5uamw")
+surface_material_override/0 = SubResource("StandardMaterial3D_mxp2g")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=1269236419]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.13068664, 1.1967312, 0.36220944)
+mesh = SubResource("SphereMesh_5uamw")
+surface_material_override/0 = SubResource("StandardMaterial3D_wvg44")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="." unique_id=1668171806]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.131, 1.1965833, 0.362)
+mesh = SubResource("SphereMesh_5uamw")
+surface_material_override/0 = SubResource("StandardMaterial3D_nfcs1")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1345352515]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1951313449]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("SphereShape3D_l5jvj")
+
+[node name="Target" parent="." unique_id=20653629 instance=ExtResource("2_blxqn")]
+transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 0, 0.47335052, 0.4755245)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

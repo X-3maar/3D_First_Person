@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cqndcilr0pim1" path="res://Scenes/gate.tscn" id="7_n2ri7"]
 [ext_resource type="PackedScene" uid="uid://76hrxoa7b2lj" path="res://Scenes/menu_target.tscn" id="8_0qj8b"]
 [ext_resource type="PackedScene" uid="uid://b1i51x85am41i" path="res://Scenes/countarget.tscn" id="9_kpwhx"]
+[ext_resource type="PackedScene" uid="uid://cm81pnhd3nnvr" path="res://Scenes/final_boss.tscn" id="10_vuhub"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m86ib"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -1100,6 +1101,59 @@ _data = {
 &"open": SubResource("Animation_kv8sk")
 }
 
+[sub_resource type="Animation" id="Animation_pl8fc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gate13:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(32.718075, 2.8309853, 719.91675)]
+}
+
+[sub_resource type="Animation" id="Animation_m5qs5"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gate13:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(28.653578, 2.8309853, 719.91675), Vector3(32.718075, 2.8309853, 719.91675)]
+}
+
+[sub_resource type="Animation" id="Animation_bsn00"]
+resource_name = "open"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gate13:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(32.718, 2.831, 719.917), Vector3(28.653578, 2.8309853, 719.91675)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vs3ai"]
+_data = {
+&"RESET": SubResource("Animation_pl8fc"),
+&"close": SubResource("Animation_m5qs5"),
+&"open": SubResource("Animation_bsn00")
+}
+
 [sub_resource type="Animation" id="Animation_kg6o3"]
 length = 0.001
 tracks/0/type = "value"
@@ -1341,6 +1395,77 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_qrrau"),
 &"moving": SubResource("Animation_ggscg")
+}
+
+[sub_resource type="Animation" id="Animation_q2uf5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.5883813, 757.0867)]
+}
+
+[sub_resource type="Animation" id="Animation_vk17u"]
+resource_name = "left"
+length = 0.12
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3.6312385, 2.5883813, 757.0867), Vector3(3.631, 2.588, 757.087)]
+}
+
+[sub_resource type="Animation" id="Animation_mcka8"]
+resource_name = "middle"
+length = 0.066
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.066),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.631, 2.588, 757.087), Vector3(0, 2.588, 757.087)]
+}
+
+[sub_resource type="Animation" id="Animation_4bahe"]
+resource_name = "right"
+length = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.5883813, 757.0867), Vector3(-3.6312385, 2.5883813, 757.0867)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qrrau"]
+_data = {
+&"RESET": SubResource("Animation_q2uf5"),
+&"left": SubResource("Animation_vk17u"),
+&"middle": SubResource("Animation_mcka8"),
+&"right": SubResource("Animation_4bahe")
 }
 
 [node name="main" type="Node3D" unique_id=1663971755]
@@ -2381,6 +2506,21 @@ transform = Transform3D(0.07581636, -5.2438054e-12, 6.5732086e-15, 1.5143442e-12
 operation = 2
 size = Vector3(3.3813477, 0.21704102, 0.38882875)
 
+[node name="CSGBox3D76" type="CSGBox3D" parent="Base/Group" unique_id=1134454492]
+transform = Transform3D(100, -3.2584132e-05, 1.5099579e-05, 1.509958e-05, -4.3711393e-06, -100, 3.258414e-05, 100, -4.371134e-06, 0.79504216, 22.542675, -4803.145)
+use_collision = true
+size = Vector3(4.9617434, 0.033203125, 0.5032959)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Base/Group/CSGBox3D76" unique_id=1639835758]
+transform = Transform3D(0.07581636, -2.1884716e-12, 6.5732086e-15, 1.6928681e-12, 1.1391989, 2.9132252e-11, -1.3558264e-13, 0, 1.0000005, -9.313226e-10, 0, -0.0014305115)
+operation = 2
+size = Vector3(4.998047, 0.21704102, 0.097724915)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Base/Group/CSGBox3D76" unique_id=483641406]
+transform = Transform3D(0.07581636, -5.286438e-12, 6.5732086e-15, 1.5116797e-12, 1.1391989, 2.9132252e-11, -3.3098188e-13, 0, 1.0000005, -2.193708, 0, 0.027124777)
+operation = 2
+size = Vector3(3.3813477, 0.21704102, 0.38882875)
+
 [node name="CSGBox3D33" type="CSGBox3D" parent="Base/Group" unique_id=1505259971]
 transform = Transform3D(100, -3.2584132e-05, 1.5099579e-05, 1.509958e-05, -4.3711393e-06, -100, 3.258414e-05, 100, -4.371134e-06, -0.47941205, 22.542698, -2571.361)
 use_collision = true
@@ -2569,7 +2709,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5291595, -220.5086, 0)
 shape = SubResource("WorldBoundaryShape3D_8gbba")
 
 [node name="Player" parent="." unique_id=1939714363 instance=ExtResource("5_0qj8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.730153, 5.534791, 633.9225)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49, 0)
 
 [node name="Target" parent="." unique_id=20653629 instance=ExtResource("6_32xgo")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.3082504, 3.8062477, 36.45063)
@@ -2670,6 +2810,13 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 2.8309853, 698.48
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Gate10" unique_id=1719421266]
 libraries/ = SubResource("AnimationLibrary_7658m")
 
+[node name="Gate13" parent="." unique_id=773724964 instance=ExtResource("7_n2ri7")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 32.718075, 2.8309853, 719.91675)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Gate13" unique_id=466532377]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_vs3ai")
+
 [node name="Gate11" parent="." unique_id=961880951 instance=ExtResource("7_n2ri7")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 2.8309853, 770.60956)
 
@@ -2734,6 +2881,12 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31.
 
 [node name="Target11" parent="." unique_id=1939048889 instance=ExtResource("6_32xgo")]
 transform = Transform3D(2.9802322e-08, -1, 0, 1, 2.9802322e-08, 0, 0, 0, 1, 0, 31.952503, 696.3306)
+
+[node name="FinaBoss" parent="." unique_id=1739636275 instance=ExtResource("10_vuhub")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.5883813, 757.0867)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FinaBoss" unique_id=749777392]
+libraries/ = SubResource("AnimationLibrary_qrrau")
 
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Exit" to="Player" method="_on_exit_pressed"]
 [connection signal="pressed" from="CanvasLayer/ColorRect2/Conitnue" to="Player" method="_on_conitnue_pressed"]
