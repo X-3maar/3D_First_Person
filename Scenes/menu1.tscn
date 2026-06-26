@@ -206,6 +206,51 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4gfs"]
+atlas = ExtResource("2_i4gfs")
+region = Rect2(58, 0, 58, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wobp0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4gfs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh0of"]
+atlas = ExtResource("2_i4gfs")
+region = Rect2(0, 0, 58, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sd7rv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh0of")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6osvn"]
+atlas = ExtResource("2_i4gfs")
+region = Rect2(54, 0, 9, 59)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71fvw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6osvn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i4gfs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -545,6 +590,37 @@ theme_override_font_sizes/font_size = 32
 text = "Coming Soon"
 horizontal_alignment = 1
 
+[node name="Button5" type="Button" parent="CanvasLayer" unique_id=1222796770]
+offset_left = 489.0
+offset_top = 578.0
+offset_right = 658.0
+offset_bottom = 617.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Button5" unique_id=4268716]
+position = Vector2(149, 19)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_wobp0")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="CanvasLayer/Button5" unique_id=483621779]
+position = Vector2(19, 19)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_sd7rv")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="CanvasLayer/Button5" unique_id=2145422756]
+position = Vector2(84, 19)
+scale = Vector2(9.792, 0.75)
+sprite_frames = SubResource("SpriteFrames_71fvw")
+
+[node name="Label" type="Label" parent="CanvasLayer/Button5" unique_id=132809424]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 133.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("3_ux43u")
+theme_override_font_sizes/font_size = 16
+text = "Endless Mode"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=114721127]
 environment = SubResource("Environment_ux43u")
 
@@ -646,4 +722,5 @@ transform = Transform3D(-1, -4.4408926e-16, -8.7422784e-08, 1.5452706e-08, 0.984
 
 [connection signal="pressed" from="CanvasLayer/Button4" to="CanvasLayer" method="_on_button_4_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button3" to="CanvasLayer" method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button5" to="CanvasLayer" method="_on_button_5_pressed"]
 [connection signal="body_entered" from="Sea/Killzone" to="Sea/Killzone" method="_on_body_entered"]

@@ -13,6 +13,5 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area3D) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	call_deferred(change_scene())
-func change_scene():
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	

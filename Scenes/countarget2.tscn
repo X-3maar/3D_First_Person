@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cpodwhfneqytq"]
+
+[ext_resource type="Script" uid="uid://dcdaeehrhp352" path="res://Scripts/countarget_2.gd" id="1_lt3v6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7f73g"]
+size = Vector3(0.19946289, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vq1qf"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ls7vh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2228f"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww0yb"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Target" type="Area3D" unique_id=20653629]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_lt3v6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2131175874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018433928, 0, 0)
+shape = SubResource("BoxShape3D_7f73g")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1832125485]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, -0.0009765625, 0, 0)
+size = Vector3(1.0097656, 1, 1)
+material = SubResource("StandardMaterial3D_vq1qf")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=335657380]
+transform = Transform3D(0.2, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.0038138204, 0.0001256119, 0)
+size = Vector3(1.038147, 1, 1)
+material = SubResource("StandardMaterial3D_ls7vh")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=292670225]
+transform = Transform3D(0.2, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.008479958, 0.0001256119, 0)
+size = Vector3(1.0848083, 1, 1)
+material = SubResource("StandardMaterial3D_2228f")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=2049306156]
+transform = Transform3D(0.2, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.014097482, 0.0001256119, 0)
+size = Vector3(1.1409836, 1, 1)
+material = SubResource("StandardMaterial3D_ls7vh")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=295142511]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.020701867, 0.0001256119, 0)
+size = Vector3(1.2070274, 1, 1)
+material = SubResource("StandardMaterial3D_ww0yb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -25,6 +25,10 @@ Global="*uid://dm1llekb07vg8"
 Bgm1="*uid://c2ecpwlnabgsv"
 Bgm2="*uid://8lsq4am5jywc"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
