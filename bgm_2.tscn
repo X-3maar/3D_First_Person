@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://8lsq4am5jywc"]
+
+[ext_resource type="AudioStream" uid="uid://blee5nbcwjhq3" path="res://Assets/freesound_community-birds-in-belfast-78059.mp3" id="1_1061n"]
+
+[node name="BGM2" type="AudioStreamPlayer3D" unique_id=2019540198]
+stream = ExtResource("1_1061n")
+bus = &"BGM2"

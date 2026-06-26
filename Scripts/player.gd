@@ -1,6 +1,6 @@
 extends CharacterBody3D
 const BULLET = preload("uid://dl5uh1glkohgb")
-
+@onready var color_rect_3: ColorRect = $"../CanvasLayer/ColorRect3"
 @onready var color_rect: ColorRect = $"../CanvasLayer/ColorRect"
 @onready var color_rect_2: ColorRect = $"../CanvasLayer/ColorRect2"
 @onready var shooter: Marker3D = $Neck/Camera3D/Pistol/Shooter
@@ -8,6 +8,7 @@ const BULLET = preload("uid://dl5uh1glkohgb")
 @onready var pistol: AnimationPlayer = $Pistol
 @onready var button: Button = $"../CanvasLayer/Button"
 @onready var cross_hair: AnimatedSprite2D = $"../CanvasLayer/CrossHair"
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 var aiming = false
 var SPEED = 5.0
 const JUMP_VELOCITY = 10
@@ -103,14 +104,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and !paused:
+		audio_stream_player_3d.play()
 		shoot()
 	
 	move_and_slide()
 
 func _on_exit_pressed() -> void:
 	Engine.time_scale = 1.0
-	get_tree().change_scene_to_file("res://Scenes/menu1.tscn")
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 
 func _on_conitnue_pressed() -> void:
 	color_rect.hide()
@@ -134,3 +136,106 @@ func shoot():
 	var bullet = BULLET.instantiate()
 	shooter.add_child(bullet)
 	bullet.global_transform = shooter.global_transform
+
+
+func _on_levels_pressed() -> void:
+	color_rect_3.show()
+	color_rect_2.hide()
+	
+
+
+
+func _on_1_pressed() -> void:
+	global_position.z = 50.0
+	color_rect.hide()
+	color_rect_3.hide()
+	cross_hair.show()
+	button.show()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Engine.time_scale = 1.0
+	paused = false
+
+func _on_2_pressed() -> void:
+	global_position.z = 130.0
+	color_rect.hide()
+	color_rect_3.hide()
+	cross_hair.show()
+	button.show()
+	Engine.time_scale = 1.0
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	paused = false
+func _on_3_pressed() -> void:
+	global_position.z = 200.0
+	color_rect.hide()
+	color_rect_3.hide()
+	cross_hair.show()
+	button.show()
+	paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Engine.time_scale = 1.0
+func _on_4_pressed() -> void:
+	global_position.z = 270.0
+	color_rect.hide()
+	color_rect_3.hide()
+	cross_hair.show()
+	button.show()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Engine.time_scale = 1.0
+	paused = false
+func _on_5_ressed() -> void:
+	global_position.z = 335.0
+	color_rect.hide()
+	color_rect_3.hide()
+	cross_hair.show()
+	button.show()
+	paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Engine.time_scale =1.0
+func _on_6_pressed() -> void:
+	global_position.z = 410.0
+	color_rect.hide()
+	color_rect_3.hide()
+	cross_hair.show()
+	button.show()
+	paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Engine.time_scale = 1.0
+func _on_7_pressed() -> void:
+	global_position.z = 490.0
+	color_rect.hide()
+	color_rect_3.hide()
+	cross_hair.show()
+	button.show()
+	paused = false
+	Engine.time_scale = 1.0
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+func _on_8_pressed() -> void:
+	global_position.z = 560.0
+	color_rect.hide()
+	color_rect_3.hide()
+	cross_hair.show()
+	button.show()
+	paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Engine.time_scale = 1.0
+func _on_9_pressed() -> void:
+	global_position.z = 630.0
+	color_rect.hide()
+	color_rect_3.hide()
+	button.show()
+	paused = false
+	cross_hair.show()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Engine.time_scale = 1.0
+func _on_10_pressed() -> void:
+	global_position.z = 705.0
+	color_rect.hide()
+	color_rect_3.hide()
+	cross_hair.show()
+	button.show()
+	paused = false
+	Engine.time_scale = 1.0
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+func _on_back_pressed() -> void:
+	color_rect_3.hide()
+	color_rect_2.show()

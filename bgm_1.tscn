@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c2ecpwlnabgsv"]
+
+[ext_resource type="AudioStream" uid="uid://d3v71vk7fcioo" path="res://Assets/studiokolomna-battleground-symphony-147447.mp3" id="1_xfkqu"]
+
+[node name="BGM1" type="AudioStreamPlayer3D" unique_id=949319130]
+stream = ExtResource("1_xfkqu")
+bus = &"BGM"

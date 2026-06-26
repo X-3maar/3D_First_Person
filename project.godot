@@ -11,13 +11,19 @@ config_version=5
 [application]
 
 config/name="3D_First_Person"
-run/main_scene="uid://cd2huqadkin5u"
+run/main_scene="uid://dqg6g85pp7hmj"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://c6tet1lssi3o"
 
 [autoload]
 
 Global="*uid://dm1llekb07vg8"
+Bgm1="*uid://c2ecpwlnabgsv"
+Bgm2="*uid://8lsq4am5jywc"
 
 [editor_plugins]
 

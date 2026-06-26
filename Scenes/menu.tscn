@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bo1anjor2i4pr" path="res://Assets/SHADOW Series - Free Ui/borders/Sprite/border 1.png" id="1_cayip"]
 [ext_resource type="Script" uid="uid://bn0st7kfwh41x" path="res://Scripts/Menu.gd" id="1_jsrd8"]
+[ext_resource type="Script" uid="uid://b620isq80gi5l" path="res://Scripts/Bgm.gd" id="1_wbdvm"]
 [ext_resource type="FontFile" uid="uid://b7ykkj6nf3rlo" path="res://Assets/Fortzilla_Font_1_14/TrueType (.ttf)/Fortzilla-Italic.ttf" id="2_wwsa2"]
 [ext_resource type="FontFile" uid="uid://cp0g06ukd0sfl" path="res://Assets/Fortzilla_Font_1_14/OpenType (.otf)/Fortzilla-Regular.otf" id="3_wwsa2"]
 [ext_resource type="Script" uid="uid://bbt5i5bjt6kmx" path="res://Scripts/Sea.gd" id="4_q3rjx"]
@@ -179,6 +180,7 @@ albedo_color = Color(0, 0.78039217, 1, 1)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8gbba"]
 
 [node name="main" type="Node3D" unique_id=1663971755]
+script = ExtResource("1_wbdvm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1537357348]
 environment = SubResource("Environment_8gbba")
@@ -404,7 +406,7 @@ offset_bottom = 361.0
 theme_override_fonts/font = ExtResource("3_wwsa2")
 theme_override_font_sizes/font_size = 128
 text = "Pistols
-Arena"
+Arena 3D"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer" unique_id=1274235831]
@@ -529,6 +531,8 @@ transform = Transform3D(0.38251212, -0.087102756, -0.9198356, -0.69420606, 0.629
 
 [node name="Pistol2" parent="." unique_id=25553460 instance=ExtResource("5_wwsa2")]
 transform = Transform3D(-0.62765694, 0.75677097, 0.18260688, 0.71549505, 0.65320754, -0.24776338, -0.3067805, -0.024855915, -0.95145565, -49.240757, 52.533146, -49.5219)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1188531102]
 
 [connection signal="pressed" from="CanvasLayer/Online" to="CanvasLayer" method="_on_online_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="CanvasLayer" method="_on_button_2_pressed"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bit4exnan4w56" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://dudq51g23l3rh" path="res://Scenes/Pistol.glb" id="2_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://ci5acyjstf4uw" path="res://Assets/Models/GLB format/animal-chick.glb" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://b0n0bx6n3lkwn" path="res://Assets/freesound_community-072803_semi-auto-pistol-26934.mp3" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvnsp"]
 height = 3.2268066
@@ -254,3 +255,7 @@ libraries/ = SubResource("AnimationLibrary_x3wgy")
 
 [node name="Camera" type="AnimationPlayer" parent="." unique_id=1586816176]
 libraries/ = SubResource("AnimationLibrary_tx1dd")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=839162671]
+stream = ExtResource("4_vgqql")
+bus = &"SFX"
