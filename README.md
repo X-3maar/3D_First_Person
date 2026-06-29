@@ -1,6 +1,6 @@
 # Pistols Arena 3D
 a 3d shooter game made with godot where you try to find and shoot a target to reach the next level, it also has an online mode coming very soon.
-Note: I've alreasy played and passed all the levels personally so don't give up
+Note: I've already played and passed all the levels personally so don't give up
 <img width="1366" height="768" alt="Screenshot from 2026-06-29 17-28-34" src="https://github.com/user-attachments/assets/bd3f16cd-7613-41e8-9c60-b82cfc3417a0" />
 
 
