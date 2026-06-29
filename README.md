@@ -14,7 +14,7 @@ Just shoot the target.
 The target is a bit further but you can still shoot it.
 ### Level 2
 Jump on the platforms and reach to top, then shoot to open the door. Note: you don't have to go all the way back just jump off the platform and the door is right infront of you.
-btw there is also some levels that have door need to be reached at perfect timing so don't give up again.
+btw there is also some levels that have doors need to be reached at perfect timing so don't give up again.
 <img width="1366" height="768" alt="Screenshot from 2026-06-29 17-28-34" src="https://github.com/user-attachments/assets/09dbe513-5dee-4155-9979-95a3a90eb8f3" />
 
 ### Level 3
