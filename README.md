@@ -1,8 +1,7 @@
 # Pistols Arena 3D
 a 3d shooter game made with godot where you try to find and shoot a target to reach the next level, it also has an online mode coming very soon.
 Note: I've already played and passed all the levels personally so don't give up
-<img width="1366" height="768" alt="Screenshot from 2026-06-29 17-28-34" src="https://github.com/user-attachments/assets/bd3f16cd-7613-41e8-9c60-b82cfc3417a0" />
-
+<img width="1363" height="766" alt="image" src="https://github.com/user-attachments/assets/575e4059-a055-4dca-9cd3-6221d975cd74" />
 
 ## Controls
 WASD or arrows to move around, space to jump, ctrl to toggle cursor lock, escape to pause, right click to aim and left click to shoot.
@@ -10,9 +9,9 @@ WASD or arrows to move around, space to jump, ctrl to toggle cursor lock, escape
 For a better experience, do not read anything under this line before you give up passing a speicific level.
 ### Level 0
 Just shoot the target.
+<img width="1366" height="768" alt="Screenshot from 2026-06-29 17-28-19" src="https://github.com/user-attachments/assets/d7cdfa4e-eb0a-4b58-beaf-f1ae585fac2f" />
 ### Level 1
 The target is a bit further but you can still shoot it.
-<img width="1366" height="768" alt="Screenshot from 2026-06-29 17-28-19" src="https://github.com/user-attachments/assets/d7cdfa4e-eb0a-4b58-beaf-f1ae585fac2f" />
 ### Level 2
 Jump on the platforms and reach to top, then shoot to open the door. Note: you don't have to go all the way back just jump off the platform and the door is right infront of you.
 btw there is also some levels that have door need to be reached at perfect timing so don't give up again.
